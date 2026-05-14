@@ -1,0 +1,272 @@
+---
+const tiers = [
+  {
+    num: '01',
+    name: 'Assess',
+    tag: 'Project & Assessment',
+    desc: 'The low-risk entry point for every client',
+    features: [
+      'AI Readiness Assessment — data audit, system mapping, risk report + roadmap',
+      'Use Case Discovery Sprint — ranked backlog with ROI estimates',
+      'Agentic Proof of Concept — single use case built & validated in shadow mode',
+    ],
+    price: '$15K – $150K',
+    unit: 'per engagement',
+    accent: false,
+  },
+  {
+    num: '02',
+    name: 'Build',
+    tag: 'Deployment & Transformation',
+    desc: 'Core services revenue engine',
+    features: [
+      'Phase 2–4 Implementation — strategy through phased agentic deployment',
+      'AI Build Sprint — 8–12 weeks, 2–4 agents live',
+      'Managed AI Operations — ongoing monitoring and retraining',
+    ],
+    price: '$75K – $1M+',
+    unit: '$15–60K/mo retainer',
+    accent: true,
+  },
+  {
+    num: '03',
+    name: 'Scale',
+    tag: 'Products & Platform',
+    desc: 'High-margin recurring revenue',
+    features: [
+      'Deployment Accelerator Library — 200+ pre-built intents, flows & connectors',
+      'Voice AI Testing Simulator — synthetic stress-testing pre-launch',
+      'AI Workflow Designer — drag-and-drop agent blueprint tool',
+    ],
+    price: '$3K – $20K/mo',
+    unit: 'Per-interaction credits',
+    accent: false,
+  },
+];
+---
+
+<section class="section" id="services">
+  <div class="container--narrow">
+    <div class="section-header reveal">
+      <span class="section-label">Services & Pricing</span>
+      <h2 class="section-title">
+        Three tiers. <em>One partner.</em>
+      </h2>
+      <p class="section-subtitle">
+        From no-risk discovery to full-scale agentic operations and platform licensing.
+      </p>
+    </div>
+
+    <div class="pricing-tracks">
+      {tiers.map((tier, i) => (
+        <div class="pricing-track reveal" class:list={{ [`reveal-delay-${i + 1}`]: true, 'pricing-track--accent': tier.accent }}>
+          <div class="pricing-track__side">
+            <span class="pricing-track__num">{tier.num}</span>
+            <div class="pricing-track__line"></div>
+          </div>
+          <div class="pricing-track__body">
+            <div class="pricing-track__header">
+              <div>
+                <h3 class="pricing-track__name">{tier.name}</h3>
+                <span class="pricing-track__tag">{tier.tag}</span>
+              </div>
+              <div class="pricing-track__price-block">
+                <span class="pricing-track__price">{tier.price}</span>
+                <span class="pricing-track__unit">{tier.unit}</span>
+              </div>
+            </div>
+            <p class="pricing-track__desc">{tier.desc}</p>
+            <ul class="pricing-track__features">
+              {tier.features.map((f) => (
+                <li class="pricing-track__feature">{f}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing-tracks {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pricing-track {
+    display: flex;
+    gap: var(--space-xl);
+    padding: var(--space-2xl) 0;
+    transition: all var(--transition);
+    position: relative;
+  }
+
+  .pricing-track + .pricing-track {
+    border-top: 1px solid var(--border);
+  }
+
+  .pricing-track:hover {
+    padding-left: var(--space-sm);
+  }
+
+  .pricing-track__side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 3rem;
+    flex-shrink: 0;
+  }
+
+  .pricing-track__num {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    color: var(--accent);
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--accent-subtle);
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: all var(--transition);
+  }
+
+  .pricing-track:hover .pricing-track__num {
+    background: var(--accent-surface);
+    border-color: var(--accent-muted);
+    box-shadow: 0 0 20px var(--accent-surface);
+  }
+
+  .pricing-track__line {
+    width: 1px;
+    flex: 1;
+    min-height: 1rem;
+  }
+
+  .pricing-track__body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .pricing-track__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-lg);
+  }
+
+  .pricing-track__name {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 400;
+    color: var(--text-primary);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  .pricing-track--accent .pricing-track__name {
+    color: var(--accent);
+  }
+
+  .pricing-track__tag {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-top: var(--space-xs);
+    letter-spacing: -0.01em;
+  }
+
+  .pricing-track__price-block {
+    text-align: right;
+    flex-shrink: 0;
+    padding-top: 0.2rem;
+  }
+
+  .pricing-track__price {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    color: var(--accent);
+    white-space: nowrap;
+    letter-spacing: -0.02em;
+  }
+
+  .pricing-track__unit {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.15rem;
+    white-space: nowrap;
+  }
+
+  .pricing-track__desc {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    margin-top: var(--space-md);
+    line-height: 1.55;
+    max-width: 65ch;
+  }
+
+  .pricing-track__features {
+    list-style: none;
+    margin-top: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .pricing-track__feature {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding-left: var(--space-xl);
+    position: relative;
+  }
+
+  .pricing-track__feature::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    top: 0.05em;
+    color: var(--accent-muted);
+    font-size: var(--text-sm);
+  }
+
+  @media (max-width: 768px) {
+    .pricing-track {
+      flex-direction: column;
+      gap: var(--space-md);
+      padding: var(--space-xl) 0;
+    }
+
+    .pricing-track__side {
+      flex-direction: row;
+      width: auto;
+      gap: var(--space-md);
+    }
+
+    .pricing-track__line {
+      width: 100%;
+      height: 1px;
+      flex: none;
+      min-height: 0;
+    }
+
+    .pricing-track__header {
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .pricing-track__price-block {
+      text-align: left;
+      padding-top: 0;
+    }
+
+    .pricing-track__price {
+      font-size: var(--text-xl);
+    }
+  }
+</style>

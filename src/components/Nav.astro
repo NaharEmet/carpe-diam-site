@@ -1,0 +1,203 @@
+---
+const links = [
+  { href: '#what-we-do', label: 'What We Do' },
+  { href: '#framework', label: 'Framework' },
+  { href: '#services', label: 'Services' },
+  { href: '#engagements', label: 'Projects' },
+  { href: '#mena', label: 'MENA/KSA' },
+];
+---
+
+<nav class="nav" id="nav">
+  <div class="nav__inner container">
+    <a href="/" class="nav__logo">
+      <span class="nav__logo-icon">◆</span>
+      <span class="nav__logo-text">Carpediem AI</span>
+    </a>
+
+    <div class="nav__links" id="nav-links">
+      {links.map((link) => (
+        <a href={link.href} class="nav__link">{link.label}</a>
+      ))}
+    </div>
+
+    <div class="nav__actions">
+      <a href="#cta" class="btn btn--primary nav__cta">Start Assessment</a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      links.classList.toggle('nav__links--open');
+    });
+  }
+
+  const nav = document.getElementById('nav');
+  if (nav) {
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const current = window.scrollY;
+      if (current > 100) {
+        nav.classList.add('nav--scrolled');
+      } else {
+        nav.classList.remove('nav--scrolled');
+      }
+      lastScroll = current;
+    }, { passive: true });
+  }
+</script>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: transparent;
+    transition: all var(--transition);
+  }
+
+  .nav--scrolled {
+    background: var(--bg-glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4.5rem;
+    transition: height var(--transition);
+  }
+
+  .nav--scrolled .nav__inner {
+    height: 3.75rem;
+  }
+
+  .nav__logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .nav__logo-icon {
+    color: var(--accent);
+    font-size: 1.2em;
+    filter: drop-shadow(0 0 6px var(--accent-surface));
+  }
+
+  .nav__links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+  }
+
+  .nav__link {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    transition: color var(--transition);
+    position: relative;
+    font-weight: 500;
+  }
+
+  .nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width var(--transition);
+  }
+
+  .nav__link:hover {
+    color: var(--text-primary);
+  }
+
+  .nav__link:hover::after {
+    width: 100%;
+  }
+
+  .nav__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .nav__cta {
+    font-size: var(--text-xs);
+    padding: 0.5rem 1.25rem;
+  }
+
+  .nav__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .nav__toggle-bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 1px;
+    transition: all var(--transition);
+  }
+
+  .nav__toggle[aria-expanded="true"] .nav__toggle-bar:first-child {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .nav__toggle[aria-expanded="true"] .nav__toggle-bar:last-child {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  @media (max-width: 768px) {
+    .nav__links {
+      display: none;
+      position: fixed;
+      top: 4.5rem;
+      left: 0;
+      right: 0;
+      background: var(--bg-base);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      padding: var(--space-xl);
+      gap: var(--space-lg);
+    }
+
+    .nav__links--open {
+      display: flex;
+    }
+
+    .nav__toggle {
+      display: flex;
+    }
+
+    .nav__cta {
+      display: none;
+    }
+  }
+</style>

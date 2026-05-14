@@ -1,0 +1,217 @@
+---
+const cases = [
+  {
+    tag: 'Strategy Consulting',
+    client: 'LifeGuides',
+    desc: 'Gamified non-clinical psychology · Speech-first AI',
+    features: [
+      'Voice-first AI for mental wellness journeys',
+      'AI adapts wellness pathways in real time based on engagement',
+      'Multi-language voice AI for global employees',
+    ],
+  },
+  {
+    tag: 'LMS Platform',
+    client: 'Maflam',
+    desc: 'Dynamic LMS · Arab film & content creators · MENA',
+    features: [
+      'AI-driven course recommendations by creator career stage',
+      'Arabic voice navigation for mobile-first users',
+      'AI content curation that surfaces industry material automatically',
+    ],
+  },
+  {
+    tag: 'B2C Mobile · MENA',
+    client: 'Mobile App Suite',
+    desc: 'AI-powered consumer apps · Arabic-first · Agentic',
+    features: [
+      'Personalized AI recommendations for lifestyle and commerce',
+      'Arabic speech-to-action interfaces for users who prefer voice',
+      'AI assistants that guide users from signup through re-engagement',
+    ],
+  },
+];
+---
+
+<section class="section" id="engagements">
+  <div class="container--narrow">
+    <div class="section-header reveal">
+      <span class="section-label">Live Engagements</span>
+      <h2 class="section-title">
+        Built. Deployed. <em>Delivering.</em>
+      </h2>
+      <p class="section-subtitle">
+        Real AI products in production — not slide decks. Every project sharpens our methodology.
+      </p>
+    </div>
+
+    <div class="engagements">
+      {cases.map((c, i) => (
+        <article class="engagement reveal" class:list={{ [`reveal-delay-${i + 1}`]: true }}>
+          <div class="engagement__index">
+            <span class="engagement__num">{String(i + 1).padStart(2, '0')}</span>
+            <div class="engagement__line"></div>
+          </div>
+          <div class="engagement__body">
+            <div class="engagement__header">
+              <span class="engagement__tag">{c.tag}</span>
+              <h3 class="engagement__client">{c.client}</h3>
+              <p class="engagement__desc">{c.desc}</p>
+            </div>
+            <ul class="engagement__features">
+              {c.features.map((f) => (
+                <li class="engagement__feature">{f}</li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .engagements {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .engagement {
+    display: flex;
+    gap: var(--space-xl);
+    padding: var(--space-2xl) 0;
+    transition: all var(--transition);
+  }
+
+  .engagement + .engagement {
+    border-top: 1px solid var(--border);
+  }
+
+  .engagement:hover {
+    padding-left: var(--space-sm);
+  }
+
+  .engagement__index {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 3rem;
+    flex-shrink: 0;
+  }
+
+  .engagement__num {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    color: var(--accent-muted);
+    letter-spacing: 0.03em;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    transition: all var(--transition);
+  }
+
+  .engagement:hover .engagement__num {
+    border-color: var(--accent-subtle);
+    color: var(--accent);
+    background: var(--accent-surface);
+  }
+
+  .engagement__line {
+    width: 1px;
+    flex: 1;
+    min-height: 1rem;
+    background: linear-gradient(to bottom, var(--border), transparent);
+  }
+
+  .engagement:last-child .engagement__line {
+    display: none;
+  }
+
+  .engagement__body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .engagement__header {
+    margin-bottom: var(--space-lg);
+  }
+
+  .engagement__tag {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: var(--space-xs);
+  }
+
+  .engagement__client {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 400;
+    color: var(--text-primary);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: var(--space-xs);
+  }
+
+  .engagement__desc {
+    font-size: var(--text-base);
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .engagement__features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .engagement__feature {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding-left: var(--space-xl);
+    position: relative;
+  }
+
+  .engagement__feature::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    top: 0.05em;
+    color: var(--accent-muted);
+    font-size: var(--text-sm);
+  }
+
+  @media (max-width: 768px) {
+    .engagement {
+      flex-direction: column;
+      gap: var(--space-md);
+      padding: var(--space-xl) 0;
+    }
+
+    .engagement__index {
+      flex-direction: row;
+      width: auto;
+      gap: var(--space-md);
+    }
+
+    .engagement__line {
+      width: 100%;
+      height: 1px;
+      flex: none;
+      min-height: 0;
+    }
+
+    .engagement__client {
+      font-size: var(--text-2xl);
+    }
+  }
+</style>

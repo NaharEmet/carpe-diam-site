@@ -1,0 +1,207 @@
+---
+const services = [
+  {
+    num: '01',
+    title: 'Autonomous AI',
+    description: 'AI agents that handle complex tasks end to end. Deployed in your cloud. No lock-in.',
+    detail: 'Autonomous, self-optimizing, and built for enterprise-grade reliability.',
+  },
+  {
+    num: '02',
+    title: 'Customer\nExperience',
+    description: 'End-to-end customer experience engineering — voice AI, contact center intelligence, and AI-driven operations.',
+    detail: 'Orchestrate every touchpoint with intelligent, context-aware AI.',
+  },
+  {
+    num: '03',
+    title: 'MENA /\nKSA',
+    description: 'Your bridge to high-growth MENA markets. Backed by Rackspace, Turing/HUMAIN, and Vision 2030.',
+    detail: 'Arabic-first, locally compliant, globally competitive.',
+  },
+  {
+    num: '04',
+    title: 'PoC →\nProduction',
+    description: 'Production AI in weeks, not quarters. Our AINS Framework makes it repeatable.',
+    detail: 'From validation to live deployment — a straight line.',
+  },
+];
+---
+
+<section class="section services-section" id="what-we-do">
+  <div class="container--narrow">
+    <div class="section-header reveal">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">
+        From strategy <em>to production</em>
+      </h2>
+      <p class="section-subtitle">
+        From strategy to production — we build agentic AI systems that become core infrastructure.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      {services.map((s, i) => (
+        <div class="service-card reveal" class:list={{ [`reveal-delay-${i + 1}`]: true }}>
+          <span class="service-card__num" aria-hidden="true">{s.num}</span>
+          <div class="service-card__accent" class:list={{ 'service-card__accent--alt': i % 2 === 1 }}></div>
+          <h3 class="service-card__title">{s.title}</h3>
+          <p class="service-card__text">{s.description}</p>
+          <span class="service-card__detail">{s.detail}</span>
+          <div class="service-card__glow"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-section {
+    position: relative;
+  }
+
+  .services-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 50% 40% at 0% 20%, oklch(0.20 0.06 50 / 0.15) 0%, transparent 100%),
+      radial-gradient(ellipse 40% 30% at 100% 80%, oklch(0.16 0.04 35 / 0.12) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl) var(--space-4xl);
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .service-card {
+    position: relative;
+    padding: var(--space-lg) 0;
+    transition: all var(--transition);
+  }
+
+  .service-card:hover {
+    padding-left: var(--space-md);
+  }
+
+  .service-card__num {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    font-family: var(--font-display);
+    font-size: clamp(4.5rem, 10vw, 8rem);
+    line-height: 1;
+    color: var(--border);
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    transition: all var(--transition-slow);
+    letter-spacing: -0.06em;
+  }
+
+  .service-card:hover .service-card__num {
+    color: var(--accent-subtle);
+    transform: scale(1.08) translateY(-0.25rem);
+  }
+
+  .service-card__accent {
+    width: 3rem;
+    height: 3px;
+    background: var(--accent);
+    margin-bottom: var(--space-xl);
+    transition: all var(--transition);
+    border-radius: 2px;
+  }
+
+  .service-card__accent--alt {
+    background: var(--terracotta);
+  }
+
+  .service-card:hover .service-card__accent {
+    width: 5rem;
+  }
+
+  .service-card__title {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: 400;
+    color: var(--text-primary);
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+    white-space: pre-line;
+    margin-bottom: var(--space-md);
+    transition: color var(--transition);
+    position: relative;
+    z-index: 1;
+  }
+
+  .service-card:hover .service-card__title {
+    color: var(--accent);
+  }
+
+  .service-card__text {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 50ch;
+    position: relative;
+    z-index: 1;
+  }
+
+  .service-card__detail {
+    display: inline-block;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: var(--space-md);
+    font-style: italic;
+    transition: color var(--transition);
+    position: relative;
+    z-index: 1;
+  }
+
+  .service-card:hover .service-card__detail {
+    color: var(--accent-muted);
+  }
+
+  .service-card__glow {
+    position: absolute;
+    top: -20%;
+    right: -20%;
+    width: 140%;
+    height: 140%;
+    background: radial-gradient(circle at 30% 30%, var(--accent-surface), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .service-card:hover .service-card__glow {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+
+    .service-card__title {
+      font-size: var(--text-2xl);
+    }
+
+    .service-card__text {
+      font-size: var(--text-sm);
+    }
+
+    .service-card__num {
+      font-size: clamp(3rem, 15vw, 5rem);
+      top: -0.5rem;
+      right: -0.5rem;
+    }
+  }
+</style>

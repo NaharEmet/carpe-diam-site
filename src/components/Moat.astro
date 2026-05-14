@@ -1,0 +1,182 @@
+---
+
+<section class="moats" id="moats">
+  <div class="moats__bg"></div>
+  <div class="container--narrow">
+    <div class="section-header reveal">
+      <span class="section-label">Why Carpediem AI</span>
+      <h2 class="section-title">
+        What makes us <em>impossible to displace</em>
+      </h2>
+    </div>
+
+    <div class="moat__statement reveal reveal-delay-1">
+      <div class="moat__watermark">◈</div>
+      <div class="moat__border"></div>
+      <div class="moat__body">
+        <p class="moat__lead">
+          Every project we deliver compounds our advantage. 200+ pre-built intents, blueprints, and connectors
+          mean your deployment starts in weeks, not years. Our team built AI platforms at Five9, Kore.AI, Genesys,
+          IBM, and Uniphore — domain credibility that takes competitors a decade to earn.
+        </p>
+        <p class="moat__clincher">
+          But the real moat: <strong>clients build on our tools as core infrastructure.</strong>
+          Switching means starting from scratch. That's the difference between a vendor and a foundation.
+        </p>
+        <div class="moat__pillars">
+          <span class="moat__pillar moat__pillar--gold">Domain credibility</span>
+          <span class="moat__pillar moat__pillar--terracotta">Data advantage</span>
+          <span class="moat__pillar moat__pillar--gold">Asset library</span>
+          <span class="moat__pillar moat__pillar--terracotta">Deep integration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .moats {
+    padding-block: var(--space-4xl);
+    border-block: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .moats__bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 50% 80% at 30% 50%, oklch(0.22 0.04 50 / 0.2) 0%, transparent 100%),
+      radial-gradient(ellipse 30% 40% at 70% 60%, oklch(0.18 0.03 35 / 0.12) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .moat__statement {
+    display: flex;
+    gap: var(--space-2xl);
+    padding: var(--space-3xl) var(--space-2xl) var(--space-3xl) 0;
+    position: relative;
+    transition: all var(--transition);
+  }
+
+  .moat__watermark {
+    position: absolute;
+    right: -1rem;
+    bottom: -1rem;
+    font-size: clamp(8rem, 15vw, 18rem);
+    color: var(--accent);
+    opacity: 0.025;
+    pointer-events: none;
+    line-height: 1;
+    user-select: none;
+    transition: opacity var(--transition), transform var(--transition);
+  }
+
+  .moat__statement:hover .moat__watermark {
+    opacity: 0.05;
+    transform: scale(1.05) rotate(5deg);
+  }
+
+  .moat__border {
+    position: relative;
+    width: 6px;
+    flex-shrink: 0;
+    background: linear-gradient(to bottom, var(--accent), oklch(0.58 0.16 38 / 0.7), transparent);
+    border-radius: 3px;
+    opacity: 0.6;
+    transition: opacity var(--transition);
+  }
+
+  .moat__statement:hover .moat__border {
+    opacity: 1;
+  }
+
+  .moat__body {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .moat__lead {
+    font-size: var(--text-lg);
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin-bottom: var(--space-lg);
+  }
+
+  .moat__clincher {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: var(--space-2xl);
+    padding: var(--space-lg) 0 var(--space-lg) var(--space-xl);
+    border-left: 2px solid var(--accent-subtle);
+    font-style: italic;
+    letter-spacing: -0.01em;
+  }
+
+  .moat__clincher strong {
+    color: var(--accent);
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .moat__pillars {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .moat__pillar {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: 0.5rem 1.15rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: all var(--transition);
+  }
+
+  .moat__pillar--gold {
+    color: var(--accent);
+    border: 1px solid var(--accent-subtle);
+  }
+
+  .moat__pillar--gold:hover {
+    background: var(--accent-surface);
+    border-color: var(--accent-muted);
+  }
+
+  .moat__pillar--terracotta {
+    color: var(--terracotta);
+    border: 1px solid var(--terracotta-muted);
+  }
+
+  .moat__pillar--terracotta:hover {
+    background: oklch(0.58 0.16 38 / 0.08);
+    border-color: oklch(0.58 0.16 38 / 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .moat__statement {
+      flex-direction: column;
+      padding: var(--space-xl) 0;
+    }
+    .moat__border {
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(to right, var(--accent), oklch(0.58 0.16 38 / 0.7), transparent);
+    }
+    .moat__lead {
+      font-size: var(--text-base);
+    }
+    .moat__clincher {
+      font-size: var(--text-lg);
+      padding: var(--space-md) 0 var(--space-md) var(--space-lg);
+    }
+    .moat__watermark {
+      display: none;
+    }
+  }
+</style>

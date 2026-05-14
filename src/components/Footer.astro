@@ -1,0 +1,177 @@
+---
+
+const footerLinks = [
+  { href: '#what-we-do', label: 'Services' },
+  { href: '#framework', label: 'Framework' },
+  { href: '#mena', label: 'MENA/KSA' },
+  { href: '#cta', label: 'Contact' },
+];
+---
+
+<footer class="footer">
+  <div class="footer__top-decor"></div>
+  <div class="container--narrow">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">
+          <span class="footer__logo-icon">◆</span>
+          <span class="footer__logo-text">Carpediem AI</span>
+        </a>
+        <p class="footer__tagline">
+          Enterprise AI, done differently. Built to last.
+        </p>
+        <p class="footer__desc">
+          We design, build, and operate production-grade agentic AI systems
+          that compress timelines, eliminate waste, and deliver measurable outcomes.
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__col-title">Navigate</h4>
+        <nav class="footer__nav">
+          {footerLinks.map((link) => (
+            <a href={link.href} class="footer__link">{link.label}</a>
+          ))}
+        </nav>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__col-title">Framework</h4>
+        <nav class="footer__nav">
+          <a href="#framework" class="footer__link">AINS 5-Point Framework</a>
+          <a href="#services" class="footer__link">Services & Pricing</a>
+          <a href="#moats" class="footer__link">Why Carpediem</a>
+          <a href="#metrics" class="footer__link">Success Metrics</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">
+        © 2026 Carpediem AI · carpediemsolutions.ai
+      </p>
+      <p class="footer__tagline-small">
+        Enterprise AI services
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding-block: var(--space-3xl) var(--space-xl);
+    border-top: 1px solid var(--border);
+    background: var(--bg-base);
+    position: relative;
+  }
+
+  .footer__top-decor {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--accent-muted), var(--accent), oklch(0.58 0.16 38 / 0.5), transparent);
+    opacity: 0.5;
+  }
+
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+
+  .footer__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .footer__logo-icon {
+    color: var(--accent);
+    font-size: 1.2em;
+  }
+
+  .footer__tagline {
+    font-size: var(--text-sm);
+    color: var(--text-primary);
+    margin-top: var(--space-md);
+    max-width: 35ch;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  .footer__desc {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: var(--space-sm);
+    max-width: 40ch;
+    line-height: 1.6;
+  }
+
+  .footer__col-title {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: 400;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    margin-bottom: var(--space-lg);
+  }
+
+  .footer__nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer__link {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    transition: color var(--transition);
+    width: fit-content;
+  }
+
+  .footer__link:hover {
+    color: var(--accent);
+  }
+
+  .footer__bottom {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer__copy {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+  }
+
+  .footer__tagline-small {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .footer__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+    .footer__bottom {
+      flex-direction: column;
+      gap: var(--space-md);
+      text-align: center;
+    }
+    .footer__tagline-small {
+      display: none;
+    }
+  }
+</style>

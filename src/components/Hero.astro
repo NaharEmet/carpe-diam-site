@@ -1,0 +1,439 @@
+---
+
+<section class="hero">
+  <div class="hero__bg">
+    <div class="hero__gradient"></div>
+    <div class="hero__pattern"></div>
+    <div class="hero__watermark">◆</div>
+    <div class="hero__ornament hero__ornament--1"></div>
+    <div class="hero__ornament hero__ornament--2"></div>
+    <div class="hero__ornament hero__ornament--3"></div>
+    <div class="hero__ornament hero__ornament--4"></div>
+  </div>
+
+  <div class="hero__content container--narrow">
+    <div class="hero__badge reveal">
+      <span class="hero__badge-dot"></span>
+      <span class="hero__badge-text" id="rotating-badge">Production AI in 8 Weeks</span>
+    </div>
+
+    <h1 class="hero__title reveal reveal-delay-1">
+      <span class="hero__title-line hero__title-line--big">Seize the day</span>
+      <span class="hero__title-line hero__title-line--alt"><em>AI systems</em></span>
+      <span class="hero__title-line">Built to Last</span>
+    </h1>
+
+    <p class="hero__text reveal reveal-delay-2">
+      We design, build, and operate AI systems that run your business — not just advise on them.
+      Faster timelines, less waste, returns you can measure.
+      <span class="hero__text-accent">Services that scale like software.</span>
+    </p>
+
+    <div class="hero__actions reveal reveal-delay-3">
+      <a href="#cta" class="btn btn--primary btn--large hero__btn-primary">
+        Start AI Readiness Assessment
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="btn__arrow">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="#framework" class="btn btn--ghost btn--large">
+        See Our Framework
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="arrow">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero__scroll">
+    <span class="hero__scroll-text">Scroll</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 0 4rem;
+    overflow: hidden;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero__gradient {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 15% 20%, oklch(0.24 0.05 50 / 0.5) 0%, transparent 100%),
+      radial-gradient(ellipse 50% 40% at 85% 75%, oklch(0.20 0.05 35 / 0.25) 0%, transparent 100%),
+      radial-gradient(ellipse 40% 40% at 65% 25%, oklch(0.18 0.04 60 / 0.18) 0%, transparent 100%);
+  }
+
+  .hero__pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image:
+      repeating-linear-gradient(45deg, transparent, transparent 48px, var(--accent-muted) 48px, var(--accent-muted) 49px),
+      repeating-linear-gradient(-45deg, transparent, transparent 48px, var(--accent-muted) 48px, var(--accent-muted) 49px);
+  }
+
+  .hero__watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(16rem, 35vw, 50rem);
+    color: var(--accent);
+    opacity: 0.025;
+    pointer-events: none;
+    line-height: 1;
+    user-select: none;
+    animation: watermarkPulse 12s ease-in-out infinite;
+  }
+
+  @keyframes watermarkPulse {
+    0%, 100% { opacity: 0.025; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+    50% { opacity: 0.035; transform: translate(-50%, -50%) scale(1.04) rotate(3deg); }
+  }
+
+  .hero__ornament {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .hero__ornament--1 {
+    width: 240px;
+    height: 240px;
+    top: 8%;
+    right: 3%;
+    border-radius: 50%;
+    border: 1px solid var(--accent-subtle);
+    opacity: 0.2;
+    animation: floatOrnament 22s ease-in-out infinite;
+  }
+
+  .hero__ornament--1::before {
+    content: '';
+    position: absolute;
+    inset: 18%;
+    border: 1px solid var(--accent-muted);
+    border-radius: 50%;
+    opacity: 0.6;
+  }
+
+  .hero__ornament--1::after {
+    content: '';
+    position: absolute;
+    inset: 40%;
+    border: 1px solid var(--accent-subtle);
+    border-radius: 50%;
+  }
+
+  .hero__ornament--2 {
+    width: 120px;
+    height: 120px;
+    bottom: 12%;
+    left: 5%;
+    border: 1px solid var(--terracotta-muted);
+    border-radius: 0;
+    opacity: 0.12;
+    animation: floatOrnament 28s ease-in-out infinite reverse;
+  }
+
+  .hero__ornament--2::before {
+    content: '';
+    position: absolute;
+    inset: 15%;
+    border: 1px solid var(--terracotta-muted);
+    opacity: 0.5;
+  }
+
+  .hero__ornament--3 {
+    width: 80px;
+    height: 80px;
+    top: 28%;
+    left: 48%;
+    border-radius: 50%;
+    border: 1px solid var(--accent-muted);
+    opacity: 0.1;
+    animation: floatOrnament 18s ease-in-out infinite 5s;
+  }
+
+  .hero__ornament--3::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    margin: -6px 0 0 -6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.3;
+  }
+
+  .hero__ornament--4 {
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    right: -10%;
+    margin-top: -250px;
+    border: none;
+    background: radial-gradient(circle at center, var(--accent-surface) 0%, transparent 60%);
+    opacity: 0.2;
+    animation: floatOrnament 40s ease-in-out infinite;
+    border-radius: 50%;
+  }
+
+  .hero__ornament--4::after {
+    content: '';
+    position: absolute;
+    inset: 18%;
+    border: 1px solid var(--accent-muted);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  @keyframes floatOrnament {
+    0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+    25% { transform: translateY(-25px) rotate(3deg) scale(1.02); }
+    50% { transform: translateY(-12px) rotate(-2deg) scale(0.97); }
+    75% { transform: translateY(-30px) rotate(2deg) scale(1.01); }
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    padding: 0 var(--space-md);
+  }
+
+  .hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--accent-subtle);
+    border-radius: 100px;
+    margin-bottom: var(--space-xl);
+    background: var(--accent-surface);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 30px oklch(0.64 0.20 65 / 0.06);
+  }
+
+  .hero__badge-text {
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  .hero__badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.8); }
+  }
+
+  .hero__title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.06;
+    letter-spacing: -0.04em;
+    color: var(--text-primary);
+  }
+
+  .hero__title-line {
+    display: block;
+  }
+
+  .hero__title-line--big {
+    font-size: var(--text-6xl);
+    letter-spacing: -0.06em;
+  }
+
+  .hero__title-line--alt {
+    font-size: clamp(2.4rem, 1.4rem + 5vw, 5.5rem);
+    letter-spacing: -0.03em;
+  }
+
+  .hero__title-line--alt em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero__title-line:last-child {
+    font-size: var(--text-4xl);
+    color: var(--text-muted);
+  }
+
+  .hero__text {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 65ch;
+    margin: var(--space-xl) 0 0;
+  }
+
+  .hero__text-accent {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .hero__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+    margin-top: var(--space-2xl);
+    flex-wrap: wrap;
+  }
+
+  .hero__btn-primary {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero__btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: conic-gradient(from 0deg, transparent, var(--accent-muted), transparent, var(--accent-muted), transparent);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity var(--transition);
+    animation: btnGlow 3s linear infinite;
+  }
+
+  .hero__btn-primary:hover::after {
+    opacity: 0.6;
+  }
+
+  @keyframes btnGlow {
+    to { transform: rotate(360deg); }
+  }
+
+  .btn--large {
+    padding: 1rem 2rem;
+    font-size: var(--text-base);
+  }
+
+  .btn__arrow,
+  .arrow {
+    width: 1.1em;
+    height: 1.1em;
+  }
+
+  .hero__scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    opacity: 0.35;
+  }
+
+  .hero__scroll-text {
+    font-size: var(--text-xs);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .hero__scroll-line {
+    width: 1px;
+    height: 24px;
+    background: linear-gradient(to bottom, var(--text-muted), transparent);
+    animation: scrollDown 2.2s ease-in-out infinite;
+  }
+
+  @keyframes scrollDown {
+    0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
+    45% { transform: scaleY(1); transform-origin: top; }
+    50% { transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; opacity: 0.3; }
+  }
+
+  @media (max-width: 768px) {
+    .hero__title-line--big {
+      font-size: var(--text-4xl);
+    }
+    .hero__title-line--alt {
+      font-size: clamp(1.8rem, 1.2rem + 4vw, 3.2rem);
+    }
+    .hero__title-line:last-child {
+      font-size: var(--text-2xl);
+    }
+    .hero__text {
+      font-size: var(--text-base);
+    }
+    .hero__actions {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .btn--large {
+      justify-content: center;
+    }
+    .hero__ornament--1 {
+      width: 140px;
+      height: 140px;
+    }
+    .hero__ornament--2 {
+      display: none;
+    }
+    .hero__ornament--3 {
+      display: none;
+    }
+    .hero__ornament--4 {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const badges = [
+    "Production AI in 8 Weeks",
+    "Reliable Human AI — No Black Box",
+    "Stop Hiring Data Scientists"
+  ];
+
+  const el = document.getElementById("rotating-badge");
+  let idx = 0;
+
+  function rotateBadge() {
+    idx = (idx + 1) % badges.length;
+
+    el.style.opacity = "0";
+    el.style.transform = "translateY(4px)";
+
+    setTimeout(() => {
+      el.textContent = badges[idx];
+      el.style.opacity = "1";
+      el.style.transform = "translateY(0)";
+    }, 350);
+  }
+
+  if (el) {
+    el.style.transition = "opacity 0.35s ease, transform 0.35s ease";
+    setInterval(rotateBadge, 4500);
+  }
+</script>

@@ -1,0 +1,179 @@
+---
+---
+
+<section class="section mena" id="mena">
+  <div class="container--narrow">
+    <div class="section-header reveal">
+      <span class="section-label">Strategic Expansion</span>
+      <h2 class="section-title">
+        The MENA/KSA opportunity <em>is now</em>
+      </h2>
+      <p class="section-subtitle">
+        Vision 2030 digital transformation mandates are creating a multi-billion dollar AI opportunity across
+        government, banking, healthcare, and telecoms. Carpediem AI is uniquely positioned — with Rackspace and
+        Turing/HUMAIN as strategic co-delivery partners.
+      </p>
+    </div>
+
+    <div class="mena-grid">
+      <div class="mena-block reveal">
+        <span class="mena-block__label">Strategic Partners</span>
+        <div class="mena-block__items">
+          <div class="mena-block__item">
+            <div class="mena-block__item-line"></div>
+            <div>
+              <h3 class="mena-block__name">Rackspace Technology</h3>
+              <span class="mena-block__role">Cloud + infrastructure in KSA/UAE</span>
+              <p class="mena-block__desc">Co-branded AI Readiness Assessment. Joint delivery across the region.</p>
+            </div>
+          </div>
+          <div class="mena-block__item">
+            <div class="mena-block__item-line"></div>
+            <div>
+              <h3 class="mena-block__name">Turing / HUMAIN</h3>
+              <span class="mena-block__role">AI talent network + KSA market access</span>
+              <p class="mena-block__desc">Arabic language AI. Scale your team on demand with regional expertise.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mena-block reveal reveal-delay-1">
+        <span class="mena-block__label mena-block__label--alt">Market Access</span>
+        <div class="mena-block__items">
+          <div class="mena-block__item">
+            <div class="mena-block__item-line mena-block__item-line--alt"></div>
+            <div>
+              <h3 class="mena-block__name">Bangalore SWAT Teams</h3>
+              <span class="mena-block__role">World-class AI/ML talent at 40–60% of US/UK cost</span>
+              <p class="mena-block__desc">12+ hour daily time zone overlap with Western teams.</p>
+            </div>
+          </div>
+          <div class="mena-block__item">
+            <div class="mena-block__item-line mena-block__item-line--alt"></div>
+            <div>
+              <h3 class="mena-block__name">Vision 2030 Alignment</h3>
+              <span class="mena-block__role">NEOM, Saudi Aramco, STC — AI-native operations</span>
+              <p class="mena-block__desc">First-mover advantage in the region's largest digital transformation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .mena {
+    position: relative;
+  }
+
+  .mena::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-subtle), transparent);
+  }
+
+  .mena-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: start;
+  }
+
+  .mena-block {
+    position: relative;
+  }
+
+  .mena-block__label {
+    display: inline-block;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    padding-bottom: var(--space-sm);
+    margin-bottom: var(--space-lg);
+    border-bottom: 2px solid var(--accent-subtle);
+  }
+
+  .mena-block__label--alt {
+    color: var(--terracotta);
+    border-bottom-color: var(--terracotta-muted);
+  }
+
+  .mena-block__items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .mena-block__item {
+    display: flex;
+    gap: var(--space-lg);
+    padding: var(--space-md) 0;
+    transition: all var(--transition);
+  }
+
+  .mena-block__item:hover {
+    padding-left: var(--space-sm);
+  }
+
+  .mena-block__item-line {
+    width: 3px;
+    flex-shrink: 0;
+    background: linear-gradient(to bottom, var(--accent-muted), transparent);
+    border-radius: 2px;
+    transition: opacity var(--transition);
+  }
+
+  .mena-block__item-line--alt {
+    background: linear-gradient(to bottom, var(--terracotta-muted), transparent);
+  }
+
+  .mena-block__item:hover .mena-block__item-line {
+    opacity: 0.6;
+  }
+
+  .mena-block__name {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-xs);
+    line-height: 1.15;
+  }
+
+  .mena-block__role {
+    display: block;
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--accent);
+    line-height: 1.4;
+  }
+
+  .mena-block__item:has(.mena-block__item-line--alt) .mena-block__role {
+    color: var(--terracotta);
+  }
+
+  .mena-block__desc {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-top: var(--space-xs);
+  }
+
+  @media (max-width: 768px) {
+    .mena-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+
+    .mena-block__item {
+      padding: var(--space-md) 0;
+    }
+  }
+</style>

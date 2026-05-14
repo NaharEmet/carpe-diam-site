@@ -1,0 +1,233 @@
+<section class="cta" id="cta">
+  <div class="cta__bg">
+    <div class="cta__glow cta__glow1"></div>
+    <div class="cta__glow cta__glow2"></div>
+  </div>
+  <div class="container--narrow">
+    <div class="cta__inner reveal">
+      <div class="cta__content">
+        <div class="cta__ornament">◈</div>
+        <h2 class="cta__title">
+          Seize the day
+        </h2>
+        <p class="cta__subtitle">
+          Ready to build what's next?
+        </p>
+        <p class="cta__text">
+          Start with a no-risk AI Readiness Assessment. Understand your AI opportunity —
+          use cases, ROI estimates, and a phased roadmap — before committing to any deployment.
+        </p>
+        <div class="cta__actions">
+          <a href="#" class="btn btn--primary btn--large">
+            Request AI Readiness Assessment
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="btn__arrow">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#framework" class="btn btn--outline btn--large">
+            See the Framework
+          </a>
+        </div>
+      </div>
+      <div class="cta__visual">
+        <div class="cta__mandala"></div>
+        <div class="cta__float cta__float1"></div>
+        <div class="cta__float cta__float2"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta {
+    padding-block: var(--space-5xl);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta__bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .cta__glow {
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .cta__glow1 {
+    width: 600px;
+    height: 600px;
+    top: -20%;
+    left: -10%;
+    background: radial-gradient(circle at center, oklch(0.64 0.20 65 / 0.08) 0%, transparent 70%);
+    animation: ctaGlowPulse 8s ease-in-out infinite;
+  }
+
+  .cta__glow2 {
+    width: 400px;
+    height: 400px;
+    bottom: -15%;
+    right: 20%;
+    background: radial-gradient(circle at center, oklch(0.58 0.16 38 / 0.06) 0%, transparent 70%);
+    animation: ctaGlowPulse 10s ease-in-out infinite 2s;
+  }
+
+  @keyframes ctaGlowPulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+  }
+
+  .cta__inner {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: var(--space-3xl);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta__ornament {
+    font-size: var(--text-3xl);
+    color: var(--accent);
+    margin-bottom: var(--space-lg);
+    opacity: 0.6;
+  }
+
+  .cta__title {
+    font-family: var(--font-display);
+    font-size: var(--text-5xl);
+    font-weight: 400;
+    color: var(--text-primary);
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+
+  .cta__subtitle {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    color: var(--accent);
+    margin-top: var(--space-sm);
+    font-style: italic;
+  }
+
+  .cta__text {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    max-width: 60ch;
+    margin: var(--space-xl) 0 0;
+    line-height: 1.65;
+  }
+
+  .cta__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+    margin-top: var(--space-2xl);
+    flex-wrap: wrap;
+  }
+
+  .cta__visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .cta__mandala {
+    width: min(300px, 26vw);
+    height: min(300px, 26vw);
+    border-radius: 50%;
+    border: 1px solid oklch(0.30 0.06 58 / 0.3);
+    position: relative;
+    animation: ctaSpin 60s linear infinite;
+  }
+
+  .cta__mandala::before {
+    content: '';
+    position: absolute;
+    inset: 15%;
+    border-radius: 50%;
+    border: 1px solid oklch(0.28 0.05 50 / 0.25);
+  }
+
+  .cta__mandala::after {
+    content: '';
+    position: absolute;
+    inset: 32%;
+    border-radius: 50%;
+    border: 1px solid oklch(0.64 0.20 65 / 0.12);
+  }
+
+  .cta__float {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid var(--accent-subtle);
+    opacity: 0.1;
+    animation: floatOrnament 20s ease-in-out infinite;
+  }
+
+  .cta__float1 {
+    width: 60px;
+    height: 60px;
+    top: 10%;
+    right: 5%;
+    animation-delay: 0s;
+  }
+
+  .cta__float2 {
+    width: 40px;
+    height: 40px;
+    bottom: 20%;
+    left: 5%;
+    border-color: var(--terracotta-muted);
+    animation-delay: 5s;
+  }
+
+  @keyframes ctaSpin {
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes floatOrnament {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-15px) rotate(3deg); }
+    50% { transform: translateY(-8px) rotate(-2deg); }
+    75% { transform: translateY(-20px) rotate(2deg); }
+  }
+
+  .btn__arrow {
+    width: 1.1em;
+    height: 1.1em;
+  }
+
+  @media (max-width: 768px) {
+    .cta {
+      padding-block: var(--space-3xl);
+    }
+    .cta__inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: var(--space-xl);
+    }
+    .cta__title {
+      font-size: var(--text-4xl);
+    }
+    .cta__text {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta__actions {
+      justify-content: center;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .cta__visual {
+      display: none;
+    }
+    .btn--large {
+      text-align: center;
+      justify-content: center;
+    }
+  }
+</style>

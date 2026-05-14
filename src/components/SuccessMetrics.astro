@@ -1,0 +1,302 @@
+---
+const leading = [
+  {
+    metric: 'HURT',
+    label: 'Human Review Time',
+    desc: 'Time humans spend reviewing AI decisions per task. Target: near zero.',
+  },
+  {
+    metric: 'AI task\ncompletion rate',
+    label: null,
+    desc: '% of interactions fully resolved by the agent without escalation.',
+  },
+  {
+    metric: 'Confidence\nthreshold accuracy',
+    label: null,
+    desc: '% of agent decisions above minimum confidence before acting.',
+  },
+  {
+    metric: 'Agentic\nworkflow breadth',
+    label: null,
+    desc: 'Number of business processes with live AI agent coverage.',
+  },
+];
+
+const lagging = [
+  {
+    metric: 'Revenue per\nteam member',
+    desc: 'Must rise each quarter — the true test of AI impact.',
+  },
+  {
+    metric: 'Gross\nmargin trend',
+    desc: 'AI compute and human review costs included. Target 50%+ margin at scale.',
+  },
+  {
+    metric: 'Clients per\ndelivery pod',
+    desc: 'How many simultaneous engagements one team runs with AI support.',
+  },
+];
+---
+
+<section class="section success-metrics" id="metrics">
+  <div class="metrics__bg"></div>
+  <div class="container--narrow">
+    <div class="section-header reveal">
+      <span class="section-label">How We Measure Success</span>
+      <h2 class="section-title">
+        Metrics that matter. <em>Not vanity growth.</em>
+      </h2>
+      <p class="section-subtitle">
+        We measure whether AI is actually doing the work — not whether headcount grew.
+      </p>
+    </div>
+
+    <div class="metrics-group reveal">
+      <h3 class="metrics-group__title">
+        <span class="metrics-group__badge metrics-group__badge--leading">Leading</span>
+        <span class="metrics-group__ask">— is AI actually doing the work?</span>
+      </h3>
+      <div class="metrics-grid">
+        {leading.map((m) => (
+          <div class="metrics-row">
+            <div class="metrics-row__accent"></div>
+            <div class="metrics-row__body">
+              <span class="metrics-row__value">{m.metric}</span>
+              {m.label && <span class="metrics-row__label">{m.label}</span>}
+              <p class="metrics-row__desc">{m.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="metrics-group reveal reveal-delay-2">
+      <h3 class="metrics-group__title">
+        <span class="metrics-group__badge metrics-group__badge--lagging">Lagging</span>
+        <span class="metrics-group__ask">— is it showing up in the business?</span>
+      </h3>
+      <div class="metrics-grid">
+        {lagging.map((m) => (
+          <div class="metrics-row">
+            <div class="metrics-row__accent metrics-row__accent--lagging"></div>
+            <div class="metrics-row__body">
+              <span class="metrics-row__value">{m.metric}</span>
+              <p class="metrics-row__desc">{m.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="metrics-warning reveal reveal-delay-3">
+      <span class="metrics-warning__icon">⚠</span>
+      <div>
+        <strong class="metrics-warning__title">Not all growth is good growth</strong>
+        <p class="metrics-warning__text">Revenue that grows without AI doing the actual work isn't product-market fit — it's a consulting firm with VC funding.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .success-metrics {
+    background: var(--bg-base);
+    border-block: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .metrics__bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 40% 60% at 70% 20%, oklch(0.64 0.20 65 / 0.03) 0%, transparent 100%),
+      radial-gradient(ellipse 30% 40% at 30% 80%, oklch(0.58 0.16 38 / 0.03) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .metrics-group {
+    margin-bottom: var(--space-3xl);
+    position: relative;
+    z-index: 1;
+  }
+
+  .metrics-group__title {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xl);
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .metrics-group__badge {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 1rem;
+    border-radius: 100px;
+    flex-shrink: 0;
+  }
+
+  .metrics-group__badge--leading {
+    color: var(--accent);
+    border: 1px solid var(--accent-subtle);
+    background: var(--accent-surface);
+  }
+
+  .metrics-group__badge--lagging {
+    color: var(--terracotta);
+    border: 1px solid var(--terracotta-muted);
+    background: oklch(0.58 0.16 38 / 0.08);
+  }
+
+  .metrics-group__ask {
+    color: var(--text-muted);
+    font-size: var(--text-base);
+    font-family: var(--font-body);
+    font-weight: 400;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .metrics-group:last-of-type .metrics-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .metrics-row {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-lg) 0;
+    border-bottom: 1px solid var(--border);
+    transition: all var(--transition);
+  }
+
+  .metrics-row:hover {
+    padding-left: var(--space-sm);
+  }
+
+  .metrics-row__accent {
+    width: 4px;
+    flex-shrink: 0;
+    background: linear-gradient(to bottom, var(--accent-muted), transparent);
+    border-radius: 2px;
+    transition: all var(--transition);
+  }
+
+  .metrics-row:hover .metrics-row__accent {
+    background: linear-gradient(to bottom, var(--accent), transparent);
+  }
+
+  .metrics-row__accent--lagging {
+    background: linear-gradient(to bottom, var(--terracotta-muted), transparent);
+  }
+
+  .metrics-row:hover .metrics-row__accent--lagging {
+    background: linear-gradient(to bottom, var(--terracotta), transparent);
+  }
+
+  .metrics-row__body {
+    flex: 1;
+  }
+
+  .metrics-row__value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 400;
+    color: var(--text-primary);
+    line-height: 1.2;
+    white-space: pre-line;
+    margin-bottom: var(--space-xs);
+    letter-spacing: -0.02em;
+    transition: color var(--transition);
+  }
+
+  .metrics-row:hover .metrics-row__value {
+    color: var(--accent);
+  }
+
+  .metrics-row__label {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: -0.25rem;
+    margin-bottom: var(--space-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .metrics-row__desc {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  .metrics-warning {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-lg) var(--space-xl);
+    border-left: 3px solid var(--terracotta);
+    background: oklch(0.25 0.04 55 / 0.15);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    margin-top: var(--space-2xl);
+    transition: all var(--transition);
+    position: relative;
+    z-index: 1;
+  }
+
+  .metrics-warning:hover {
+    padding-left: calc(var(--space-xl) + 0.75rem);
+    background: oklch(0.28 0.04 55 / 0.2);
+  }
+
+  .metrics-warning__icon {
+    font-size: var(--text-2xl);
+    flex-shrink: 0;
+    margin-top: 0.1em;
+  }
+
+  .metrics-warning__title {
+    display: block;
+    font-size: var(--text-base);
+    color: var(--terracotta);
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+  }
+
+  .metrics-warning__text {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 768px) {
+    .metrics-grid,
+    .metrics-group:last-of-type .metrics-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .metrics-group__title {
+      font-size: var(--text-lg);
+    }
+    .metrics-row__value {
+      font-size: var(--text-xl);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .metrics-grid,
+    .metrics-group:last-of-type .metrics-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
