@@ -1,10 +1,9 @@
 {
   "navLinks": [
-    { "href": "#what-we-do", "label": "What We Do" },
     { "href": "#framework", "label": "Framework" },
     { "href": "#services", "label": "Services" },
     { "href": "#engagements", "label": "Projects" },
-    { "href": "#team", "label": "Who We Are" },
+    { "href": "#team", "label": "People" },
     { "href": "/approach", "label": "Approach" }
   ],
   "footerLinks": [

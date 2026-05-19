@@ -5,10 +5,10 @@
     "Stop Hiring Data Scientists"
   ],
   "clients": [
-    "LifeGuides",
-    "Maflam",
-    "Rackspace Technology",
-    "Turing / HUMAIN"
+    { "name": "LifeGuides" },
+    { "name": "Maflam" },
+    { "name": "Rackspace Technology" },
+    { "name": "Turing / HUMAIN" }
   ],
   "title": {
     "line1": "Seize the day",

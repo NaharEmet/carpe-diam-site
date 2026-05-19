@@ -90,10 +90,21 @@ content:
         list: true
         description: Badge rotates through these texts every 4.5s
       - name: clients
-        type: string
-        label: Client Names (Marquee)
-        list: true
-        description: Displayed as scrolling marquee in hero
+        label: Client Logos / Names (Marquee)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            type: string
+            label: Client Name
+            required: true
+          - name: logo
+            type: image
+            label: Logo Image (optional)
+            description: Upload SVG or PNG. Falls back to text name if no logo.
       - name: title
         type: object
         label: Hero Title

@@ -1,6 +1,6 @@
 ---
 import hero from '../data/hero.json';
-const clients = [...hero.clients, ...hero.clients];
+const allClients = [...hero.clients, ...hero.clients];
 const line3Html = hero.title.line3Highlight
   ? hero.title.line3.replace(hero.title.line3Highlight, `<em class="hero__last-word">${hero.title.line3Highlight}</em>`)
   : hero.title.line3;
@@ -22,8 +22,11 @@ const line3Html = hero.title.line3Highlight
 
     <div class="hero__clients reveal">
       <div class="hero__clients-track">
-        {clients.map((c) => (
-          <span class="hero__client">{c}</span>
+        {allClients.map((c) => (
+          <span class="hero__client-item">
+            {c.logo && <img src={c.logo} alt={c.name} class="hero__client-logo" />}
+            <span class="hero__client">{c.name}</span>
+          </span>
         ))}
       </div>
     </div>
@@ -288,6 +291,13 @@ const line3Html = hero.title.line3Highlight
     to { transform: translateX(-50%); }
   }
 
+  .hero__client-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+  }
+
   .hero__client {
     font-family: var(--font-display);
     font-size: var(--text-sm);
@@ -295,6 +305,20 @@ const line3Html = hero.title.line3Highlight
     white-space: nowrap;
     letter-spacing: -0.01em;
     opacity: 0.6;
+  }
+
+  .hero__client-logo {
+    height: 1.6rem;
+    width: auto;
+    opacity: 0.5;
+    filter: grayscale(1) brightness(1.5);
+    transition: opacity var(--transition), filter var(--transition);
+    flex-shrink: 0;
+  }
+
+  .hero__client-logo:hover {
+    opacity: 0.8;
+    filter: grayscale(0) brightness(1);
   }
 
   .hero__stats {
