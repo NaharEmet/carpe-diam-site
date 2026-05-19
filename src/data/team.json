@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Arjun Mehta",
+    "role": "Founder & CEO",
+    "bio": "Former AI platform lead at Five9 and Genesys. 15+ years building enterprise AI systems at scale. Led the architecture of Kore.AI's agentic platform from 0 to 500+ enterprise deployments.",
+    "initials": "AM",
+    "accent": "gold"
+  },
+  {
+    "name": "Lena Al-Rashid",
+    "role": "VP of AI Engineering",
+    "bio": "Built AI infrastructure at IBM Watson and Uniphore. Deep expertise in Arabic NLP, voice AI, and multi-modal agent systems. Leads delivery across MENA markets.",
+    "initials": "LA",
+    "accent": "navy"
+  },
+  {
+    "name": "David Chen",
+    "role": "Head of Product & Strategy",
+    "bio": "Former product director at Rackspace Technology. Drove AI product strategy for Fortune 500 clients across healthcare, finance, and telecom. Designs the AINS delivery framework.",
+    "initials": "DC",
+    "accent": "gold"
+  }
+]

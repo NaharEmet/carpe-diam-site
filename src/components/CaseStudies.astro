@@ -1,39 +1,11 @@
 ---
-const cases = [
-  {
-    tag: 'Strategy Consulting',
-    client: 'LifeGuides',
-    desc: 'Gamified non-clinical psychology · Speech-first AI',
-    features: [
-      'Voice-first AI for mental wellness journeys',
-      'AI adapts wellness pathways in real time based on engagement',
-      'Multi-language voice AI for global employees',
-    ],
-  },
-  {
-    tag: 'LMS Platform',
-    client: 'Maflam',
-    desc: 'Dynamic LMS · Arab film & content creators · MENA',
-    features: [
-      'AI-driven course recommendations by creator career stage',
-      'Arabic voice navigation for mobile-first users',
-      'AI content curation that surfaces industry material automatically',
-    ],
-  },
-  {
-    tag: 'B2C Mobile · MENA',
-    client: 'Mobile App Suite',
-    desc: 'AI-powered consumer apps · Arabic-first · Agentic',
-    features: [
-      'Personalized AI recommendations for lifestyle and commerce',
-      'Arabic speech-to-action interfaces for users who prefer voice',
-      'AI assistants that guide users from signup through re-engagement',
-    ],
-  },
-];
+import cases from '../data/cases.json';
 ---
 
-<section class="section" id="engagements">
+<section class="section engagements-section" id="engagements">
+  <div class="engagements__bg"></div>
+  <div class="engagements__ornament engagements__ornament--circle"></div>
+  <div class="engagements__ornament engagements__ornament--square"></div>
   <div class="container--narrow">
     <div class="section-header reveal">
       <span class="section-label">Live Engagements</span>
@@ -59,8 +31,8 @@ const cases = [
               <p class="engagement__desc">{c.desc}</p>
             </div>
             <ul class="engagement__features">
-              {c.features.map((f) => (
-                <li class="engagement__feature">{f}</li>
+              {c.results.map((r) => (
+                <li class="engagement__feature">{r}</li>
               ))}
             </ul>
           </div>
@@ -71,6 +43,72 @@ const cases = [
 </section>
 
 <style>
+  .engagements-section {
+    position: relative;
+  }
+
+  .engagements__bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 55% 50% at 10% 30%, var(--glow-1) 0%, transparent 100%),
+      radial-gradient(ellipse 40% 35% at 85% 65%, var(--glow-2) 0%, transparent 100%),
+      radial-gradient(ellipse 30% 30% at 55% 15%, var(--glow-3) 0%, transparent 100%);
+    pointer-events: none;
+    mask-image: 
+      radial-gradient(ellipse 100% 20% at 50% 0%, transparent 0%, black 100%),
+      radial-gradient(ellipse 100% 20% at 50% 100%, transparent 0%, black 100%);
+    -webkit-mask-image: 
+      radial-gradient(ellipse 100% 20% at 50% 0%, transparent 0%, black 100%),
+      radial-gradient(ellipse 100% 20% at 50% 100%, transparent 0%, black 100%);
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+  }
+
+  .engagements__ornament {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .engagements__ornament--circle {
+    width: 190px;
+    height: 190px;
+    top: 4%;
+    right: 2%;
+    border-radius: 50%;
+    border: 1px solid var(--accent-subtle);
+    opacity: 0.12;
+    animation: sectionFloat 25s ease-in-out infinite;
+  }
+
+  .engagements__ornament--circle::before {
+    content: '';
+    position: absolute;
+    inset: 20%;
+    border: 1px solid var(--accent-muted);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  .engagements__ornament--square {
+    width: 95px;
+    height: 95px;
+    bottom: 8%;
+    left: 2%;
+    border: 1px solid var(--navy);
+    border-radius: 0;
+    opacity: 0.1;
+    animation: sectionFloat 30s ease-in-out infinite reverse;
+  }
+
+  .engagements__ornament--square::before {
+    content: '';
+    position: absolute;
+    inset: 15%;
+    border: 1px solid var(--navy);
+    opacity: 0.5;
+  }
+
   .engagements {
     display: flex;
     flex-direction: column;
@@ -115,9 +153,9 @@ const cases = [
   }
 
   .engagement:hover .engagement__num {
-    border-color: var(--accent-subtle);
-    color: var(--accent);
-    background: var(--accent-surface);
+    border-color: var(--highlight-muted);
+    color: var(--highlight);
+    background: var(--highlight-surface);
   }
 
   .engagement__line {
@@ -212,6 +250,15 @@ const cases = [
 
     .engagement__client {
       font-size: var(--text-2xl);
+    }
+
+    .engagements__ornament--circle {
+      width: 110px;
+      height: 110px;
+    }
+
+    .engagements__ornament--square {
+      display: none;
     }
   }
 </style>

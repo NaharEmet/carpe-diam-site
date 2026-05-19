@@ -1,0 +1,191 @@
+---
+---
+
+<section class="clients">
+  <div class="clients__ornament clients__ornament--circle"></div>
+  <div class="clients__ornament clients__ornament--square"></div>
+  <div class="clients__inner">
+    <p class="clients__label">Selected clients &amp; partners</p>
+    <div class="clients__fade">
+      <div class="clients__track">
+        <div class="clients__card">
+          <svg viewBox="0 0 44 44" fill="none" class="clients__mark"><rect width="44" height="44" rx="10" fill="currentColor" opacity="0.1"/><path d="M14 30V14l8 8V14l8 8V30" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/><circle cx="14" cy="18" r="2" fill="currentColor" opacity="0.4"/><circle cx="30" cy="18" r="2" fill="currentColor" opacity="0.4"/></svg>
+          <span class="clients__name">LifeGuides</span>
+        </div>
+        <div class="clients__card">
+          <svg viewBox="0 0 44 44" fill="none" class="clients__mark"><rect width="44" height="44" rx="10" fill="currentColor" opacity="0.1"/><path d="M12 22h20M18 14l-6 8 6 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/><path d="M26 14l6 8-6 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/></svg>
+          <span class="clients__name">Maflam</span>
+        </div>
+        <div class="clients__card">
+          <svg viewBox="0 0 44 44" fill="none" class="clients__mark"><rect width="44" height="44" rx="10" fill="currentColor" opacity="0.1"/><rect x="10" y="12" width="24" height="20" rx="3" fill="currentColor" opacity="0.08"/><rect x="14" y="16" width="7" height="5" rx="1" fill="currentColor" opacity="0.3"/><rect x="23" y="16" width="7" height="5" rx="1" fill="currentColor" opacity="0.3"/><rect x="14" y="23" width="16" height="3" rx="1" fill="currentColor" opacity="0.2"/></svg>
+          <span class="clients__name">Rackspace Technology</span>
+        </div>
+        <div class="clients__card">
+          <svg viewBox="0 0 44 44" fill="none" class="clients__mark"><rect width="44" height="44" rx="10" fill="currentColor" opacity="0.1"/><circle cx="22" cy="18" r="6" fill="currentColor" opacity="0.08"/><circle cx="22" cy="18" r="2" fill="currentColor" opacity="0.4"/><path d="M14 30c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.3"/></svg>
+          <span class="clients__name">Turing / HUMAIN</span>
+        </div>
+        <div class="clients__card">
+          <svg viewBox="0 0 44 44" fill="none" class="clients__mark"><rect width="44" height="44" rx="10" fill="currentColor" opacity="0.1"/><rect x="10" y="12" width="24" height="20" rx="3" fill="currentColor" opacity="0.08"/><rect x="14" y="16" width="7" height="5" rx="1" fill="currentColor" opacity="0.3"/><rect x="23" y="16" width="7" height="5" rx="1" fill="currentColor" opacity="0.3"/><rect x="14" y="23" width="16" height="3" rx="1" fill="currentColor" opacity="0.2"/></svg>
+          <span class="clients__name">Rackspace Technology</span>
+        </div>
+        <div class="clients__card">
+          <svg viewBox="0 0 44 44" fill="none" class="clients__mark"><rect width="44" height="44" rx="10" fill="currentColor" opacity="0.1"/><circle cx="22" cy="18" r="6" fill="currentColor" opacity="0.08"/><circle cx="22" cy="18" r="2" fill="currentColor" opacity="0.4"/><path d="M14 30c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity="0.3"/></svg>
+          <span class="clients__name">Turing / HUMAIN</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .clients {
+    padding: 3rem 0;
+    position: relative;
+    color: var(--text-secondary);
+  }
+
+  .clients::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 24px;
+    background: var(--bg-deep);
+    -webkit-mask: radial-gradient(14px at 20px -2px, black 99%, transparent 100%);
+    -webkit-mask-size: 40px 100%;
+    -webkit-mask-repeat: repeat-x;
+    mask: radial-gradient(14px at 20px -2px, black 99%, transparent 100%);
+    mask-size: 40px 100%;
+    mask-repeat: repeat-x;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .clients__ornament {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .clients__ornament--circle {
+    width: 120px;
+    height: 120px;
+    top: 10%;
+    left: 5%;
+    border-radius: 50%;
+    border: 1px solid var(--accent-subtle);
+    opacity: 0.08;
+    animation: sectionFloat 20s ease-in-out infinite;
+  }
+
+  .clients__ornament--circle::before {
+    content: '';
+    position: absolute;
+    inset: 20%;
+    border: 1px solid var(--accent-muted);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  .clients__ornament--square {
+    width: 70px;
+    height: 70px;
+    bottom: 15%;
+    right: 8%;
+    border: 1px solid var(--navy-muted);
+    border-radius: 0;
+    opacity: 0.06;
+    animation: sectionFloat 24s ease-in-out infinite reverse;
+  }
+
+  .clients__ornament--square::before {
+    content: '';
+    position: absolute;
+    inset: 15%;
+    border: 1px solid var(--navy-muted);
+    opacity: 0.5;
+  }
+
+  .clients__inner {
+    width: min(92%, var(--content-width));
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .clients__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 2rem;
+  }
+
+  .clients__fade {
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  }
+
+  .clients__track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: scrollClients 28s linear infinite;
+  }
+
+  @keyframes scrollClients {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .clients__card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .clients__mark {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  .clients__name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    white-space: nowrap;
+    letter-spacing: -0.02em;
+  }
+
+  @media (max-width: 768px) {
+    .clients__card {
+      gap: 0.5rem;
+    }
+
+    .clients__mark {
+      width: 30px;
+      height: 30px;
+    }
+
+    .clients__name {
+      font-size: 0.95rem;
+    }
+
+    .clients__track {
+      gap: 1.25rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .clients__track {
+      animation: none;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+</style>

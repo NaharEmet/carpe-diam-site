@@ -1,0 +1,26 @@
+[
+  {
+    "num": "01",
+    "title": "Autonomous AI",
+    "description": "AI agents that handle complex tasks end to end. Deployed in your cloud. No lock-in.",
+    "detail": "Autonomous, self-optimizing, and built for enterprise-grade reliability."
+  },
+  {
+    "num": "02",
+    "title": "Customer\nExperience",
+    "description": "End-to-end customer experience engineering — voice AI, contact center intelligence, and AI-driven operations.",
+    "detail": "Orchestrate every touchpoint with intelligent, context-aware AI."
+  },
+  {
+    "num": "03",
+    "title": "MENA /\nKSA",
+    "description": "Your bridge to high-growth MENA markets. Backed by Rackspace, Turing/HUMAIN, and Vision 2030.",
+    "detail": "Arabic-first, locally compliant, globally competitive."
+  },
+  {
+    "num": "04",
+    "title": "PoC →\nProduction",
+    "description": "Production AI in weeks, not quarters. Our AINS Framework makes it repeatable.",
+    "detail": "From validation to live deployment — a straight line."
+  }
+]

@@ -1,12 +1,16 @@
 ---
+import moat from '../data/moat.json';
+---
 
 <section class="moats" id="moats">
   <div class="moats__bg"></div>
+  <div class="moats__ornament moats__ornament--circle"></div>
+  <div class="moats__ornament moats__ornament--square"></div>
   <div class="container--narrow">
     <div class="section-header reveal">
-      <span class="section-label">Why Carpediem AI</span>
+      <span class="section-label">{moat.label}</span>
       <h2 class="section-title">
-        What makes us <em>impossible to displace</em>
+        {moat.title}
       </h2>
     </div>
 
@@ -15,19 +19,15 @@
       <div class="moat__border"></div>
       <div class="moat__body">
         <p class="moat__lead">
-          Every project we deliver compounds our advantage. 200+ pre-built intents, blueprints, and connectors
-          mean your deployment starts in weeks, not years. Our team built AI platforms at Five9, Kore.AI, Genesys,
-          IBM, and Uniphore — domain credibility that takes competitors a decade to earn.
+          {moat.lead}
         </p>
         <p class="moat__clincher">
-          But the real moat: <strong>clients build on our tools as core infrastructure.</strong>
-          Switching means starting from scratch. That's the difference between a vendor and a foundation.
+          <strong>{moat.clincher}</strong>
         </p>
         <div class="moat__pillars">
-          <span class="moat__pillar moat__pillar--gold">Domain credibility</span>
-          <span class="moat__pillar moat__pillar--terracotta">Data advantage</span>
-          <span class="moat__pillar moat__pillar--gold">Asset library</span>
-          <span class="moat__pillar moat__pillar--terracotta">Deep integration</span>
+          {moat.pillars.map((p, i) => (
+            <span class="moat__pillar" class:list={{ [`moat__pillar--${moat.pillarStyles[i]}`]: true }}>{p}</span>
+          ))}
         </div>
       </div>
     </div>
@@ -37,18 +37,87 @@
 <style>
   .moats {
     padding-block: var(--space-4xl);
-    border-block: 1px solid var(--border);
     position: relative;
-    overflow: hidden;
+  }
+
+  .moats::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 24px;
+    background: var(--bg-deep);
+    -webkit-mask: radial-gradient(14px at 20px -2px, black 99%, transparent 100%);
+    -webkit-mask-size: 40px 100%;
+    -webkit-mask-repeat: repeat-x;
+    mask: radial-gradient(14px at 20px -2px, black 99%, transparent 100%);
+    mask-size: 40px 100%;
+    mask-repeat: repeat-x;
+    pointer-events: none;
+    z-index: 2;
   }
 
   .moats__bg {
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 50% 80% at 30% 50%, oklch(0.22 0.04 50 / 0.2) 0%, transparent 100%),
-      radial-gradient(ellipse 30% 40% at 70% 60%, oklch(0.18 0.03 35 / 0.12) 0%, transparent 100%);
+      radial-gradient(ellipse 55% 80% at 30% 50%, var(--glow-1-dim) 0%, transparent 100%),
+      radial-gradient(ellipse 35% 45% at 70% 60%, var(--glow-2-dim) 0%, transparent 100%),
+      radial-gradient(ellipse 30% 30% at 50% 20%, var(--glow-3-dim) 0%, transparent 100%);
     pointer-events: none;
+    mask-image: 
+      radial-gradient(ellipse 100% 20% at 50% 0%, transparent 0%, black 100%),
+      radial-gradient(ellipse 100% 20% at 50% 100%, transparent 0%, black 100%);
+    -webkit-mask-image: 
+      radial-gradient(ellipse 100% 20% at 50% 0%, transparent 0%, black 100%),
+      radial-gradient(ellipse 100% 20% at 50% 100%, transparent 0%, black 100%);
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+  }
+
+  .moats__ornament {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .moats__ornament--circle {
+    width: 200px;
+    height: 200px;
+    top: 5%;
+    left: 2%;
+    border-radius: 50%;
+    border: 1px solid var(--accent-subtle);
+    opacity: 0.12;
+    animation: sectionFloat 26s ease-in-out infinite;
+  }
+
+  .moats__ornament--circle::before {
+    content: '';
+    position: absolute;
+    inset: 20%;
+    border: 1px solid var(--accent-muted);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  .moats__ornament--square {
+    width: 100px;
+    height: 100px;
+    bottom: 10%;
+    right: 3%;
+    border: 1px solid var(--navy);
+    border-radius: 0;
+    opacity: 0.1;
+    animation: sectionFloat 32s ease-in-out infinite reverse;
+  }
+
+  .moats__ornament--square::before {
+    content: '';
+    position: absolute;
+    inset: 15%;
+    border: 1px solid var(--navy);
+    opacity: 0.5;
   }
 
   .moat__statement {
@@ -81,7 +150,7 @@
     position: relative;
     width: 6px;
     flex-shrink: 0;
-    background: linear-gradient(to bottom, var(--accent), oklch(0.58 0.16 38 / 0.7), transparent);
+    background: linear-gradient(to bottom, var(--highlight), var(--highlight-glow-strong), transparent);
     border-radius: 3px;
     opacity: 0.6;
     transition: opacity var(--transition);
@@ -144,18 +213,18 @@
   }
 
   .moat__pillar--gold:hover {
-    background: var(--accent-surface);
-    border-color: var(--accent-muted);
+    background: var(--highlight-surface);
+    border-color: var(--highlight-muted);
   }
 
-  .moat__pillar--terracotta {
-    color: var(--terracotta);
-    border: 1px solid var(--terracotta-muted);
+  .moat__pillar--navy {
+    color: var(--navy);
+    border: 1px solid var(--navy-muted);
   }
 
-  .moat__pillar--terracotta:hover {
-    background: oklch(0.58 0.16 38 / 0.08);
-    border-color: oklch(0.58 0.16 38 / 0.3);
+  .moat__pillar--navy:hover {
+    background: var(--navy-glow-subtle);
+    border-color: var(--navy-glow-mid);
   }
 
   @media (max-width: 768px) {
@@ -166,7 +235,7 @@
     .moat__border {
       width: 100%;
       height: 4px;
-      background: linear-gradient(to right, var(--accent), oklch(0.58 0.16 38 / 0.7), transparent);
+      background: linear-gradient(to right, var(--accent), var(--navy-glow-strong), transparent);
     }
     .moat__lead {
       font-size: var(--text-base);
@@ -176,6 +245,13 @@
       padding: var(--space-md) 0 var(--space-md) var(--space-lg);
     }
     .moat__watermark {
+      display: none;
+    }
+    .moats__ornament--circle {
+      width: 120px;
+      height: 120px;
+    }
+    .moats__ornament--square {
       display: none;
     }
   }

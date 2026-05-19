@@ -1,0 +1,33 @@
+[
+  {
+    "tag": "Strategy Consulting",
+    "client": "LifeGuides",
+    "desc": "Gamified non-clinical psychology · Speech-first AI",
+    "results": [
+      "Voice-first AI deployed across 12 languages in 6 weeks",
+      "85% user conversation completion rate (vs. 40% with text-only prior flow)",
+      "40% reduction in human counselor triage workload",
+      "2.5M+ voice interactions processed in first quarter"
+    ]
+  },
+  {
+    "tag": "LMS Platform",
+    "client": "Maflam",
+    "desc": "Dynamic LMS · Arab film & content creators · MENA",
+    "results": [
+      "AI-driven course recommendations by creator career stage",
+      "Arabic voice navigation for mobile-first users",
+      "AI content curation that surfaces industry material automatically"
+    ]
+  },
+  {
+    "tag": "B2C Mobile · MENA",
+    "client": "Mobile App Suite",
+    "desc": "AI-powered consumer apps · Arabic-first · Agentic",
+    "results": [
+      "Personalized AI recommendations for lifestyle and commerce",
+      "Arabic speech-to-action interfaces for users who prefer voice",
+      "AI assistants that guide users from signup through re-engagement"
+    ]
+  }
+]

@@ -1,9 +1,16 @@
 ---
+import hero from '../data/hero.json';
+const clients = [...hero.clients, ...hero.clients];
+const line3Html = hero.title.line3Highlight
+  ? hero.title.line3.replace(hero.title.line3Highlight, `<em class="hero__last-word">${hero.title.line3Highlight}</em>`)
+  : hero.title.line3;
+---
 
 <section class="hero">
   <div class="hero__bg">
     <div class="hero__gradient"></div>
     <div class="hero__pattern"></div>
+    <img src="/logo-no-center.svg" alt="" class="hero__logo-bg">
     <div class="hero__watermark">◆</div>
     <div class="hero__ornament hero__ornament--1"></div>
     <div class="hero__ornament hero__ornament--2"></div>
@@ -12,32 +19,44 @@
   </div>
 
   <div class="hero__content container--narrow">
-    <div class="hero__badge reveal">
-      <span class="hero__badge-dot"></span>
-      <span class="hero__badge-text" id="rotating-badge">Production AI in 8 Weeks</span>
+
+    <div class="hero__clients reveal">
+      <div class="hero__clients-track">
+        {clients.map((c) => (
+          <span class="hero__client">{c}</span>
+        ))}
+      </div>
     </div>
 
-    <h1 class="hero__title reveal reveal-delay-1">
-      <span class="hero__title-line hero__title-line--big">Seize the day</span>
-      <span class="hero__title-line hero__title-line--alt"><em>AI systems</em></span>
-      <span class="hero__title-line">Built to Last</span>
+    <div class="hero__badge reveal" data-badges={JSON.stringify(hero.badges)}>
+      <span class="hero__badge-dot"></span>
+      <span class="hero__badge-text" id="rotating-badge">{hero.badges[0]}</span>
+    </div>
+
+    <h1 class="hero__title">
+      <span class="hero__title-line hero__title-line--big reveal">{hero.title.line1}</span>
+      <span class="hero__title-line hero__title-line--alt reveal reveal-delay-1"><em>{hero.title.line2}</em></span>
+      <span class="hero__title-line reveal reveal-delay-2" set:html={line3Html}></span>
     </h1>
 
-    <p class="hero__text reveal reveal-delay-2">
-      We design, build, and operate AI systems that run your business — not just advise on them.
-      Faster timelines, less waste, returns you can measure.
-      <span class="hero__text-accent">Services that scale like software.</span>
+    <p class="hero__text reveal reveal-delay-3">
+      {hero.subtitle}
     </p>
 
-    <div class="hero__actions reveal reveal-delay-3">
+    <div class="hero__stats reveal reveal-delay-3">
+      <span class="hero__stat">{hero.statNumber}</span>
+      <span class="hero__stat-label">{hero.statLabel}</span>
+    </div>
+
+    <div class="hero__actions reveal reveal-delay-4">
       <a href="#cta" class="btn btn--primary btn--large hero__btn-primary">
-        Start AI Readiness Assessment
+        {hero.ctaPrimary}
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="btn__arrow">
           <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
       <a href="#framework" class="btn btn--ghost btn--large">
-        See Our Framework
+        {hero.ctaGhost}
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="arrow">
           <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -59,7 +78,24 @@
     align-items: center;
     justify-content: center;
     padding: 6rem 0 4rem;
-    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 24px;
+    background: var(--bg-deep);
+    -webkit-mask: radial-gradient(14px at 20px -2px, black 99%, transparent 100%);
+    -webkit-mask-size: 40px 100%;
+    -webkit-mask-repeat: repeat-x;
+    mask: radial-gradient(14px at 20px -2px, black 99%, transparent 100%);
+    mask-size: 40px 100%;
+    mask-repeat: repeat-x;
+    pointer-events: none;
+    z-index: 2;
   }
 
   .hero__bg {
@@ -72,9 +108,11 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 70% 60% at 15% 20%, oklch(0.24 0.05 50 / 0.5) 0%, transparent 100%),
-      radial-gradient(ellipse 50% 40% at 85% 75%, oklch(0.20 0.05 35 / 0.25) 0%, transparent 100%),
-      radial-gradient(ellipse 40% 40% at 65% 25%, oklch(0.18 0.04 60 / 0.18) 0%, transparent 100%);
+      radial-gradient(ellipse 70% 60% at 15% 20%, var(--hero-glow-1) 0%, transparent 100%),
+      radial-gradient(ellipse 50% 40% at 85% 75%, var(--hero-glow-2) 0%, transparent 100%),
+      radial-gradient(ellipse 40% 40% at 65% 25%, var(--hero-glow-3) 0%, transparent 100%);
+    animation: breatheGlowSoft 7s ease-in-out infinite;
+    background-blend-mode: normal;
   }
 
   .hero__pattern {
@@ -98,6 +136,19 @@
     line-height: 1;
     user-select: none;
     animation: watermarkPulse 12s ease-in-out infinite;
+    z-index: 1;
+  }
+
+  .hero__logo-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(63vw, 720px);
+    opacity: 0.015;
+    pointer-events: none;
+    z-index: 0;
+    filter: drop-shadow(0 0 20px var(--accent));
   }
 
   @keyframes watermarkPulse {
@@ -143,7 +194,7 @@
     height: 120px;
     bottom: 12%;
     left: 5%;
-    border: 1px solid var(--terracotta-muted);
+    border: 1px solid var(--navy);
     border-radius: 0;
     opacity: 0.12;
     animation: floatOrnament 28s ease-in-out infinite reverse;
@@ -153,7 +204,7 @@
     content: '';
     position: absolute;
     inset: 15%;
-    border: 1px solid var(--terracotta-muted);
+    border: 1px solid var(--navy);
     opacity: 0.5;
   }
 
@@ -216,6 +267,57 @@
     padding: 0 var(--space-md);
   }
 
+  .hero__clients {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-2xl);
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  }
+
+  .hero__clients-track {
+    display: flex;
+    gap: 2.5rem;
+    animation: scrollClients 28s linear infinite;
+  }
+
+  @keyframes scrollClients {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .hero__client {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+    opacity: 0.6;
+  }
+
+  .hero__stats {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+  }
+
+  .hero__stat {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .hero__stat-label {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
   .hero__badge {
     display: inline-flex;
     align-items: center;
@@ -224,14 +326,14 @@
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--highlight);
     padding: 0.5rem 1.5rem;
-    border: 1px solid var(--accent-subtle);
+    border: 1px solid var(--highlight-muted);
     border-radius: 100px;
     margin-bottom: var(--space-xl);
-    background: var(--accent-surface);
+    background: var(--highlight-surface);
     backdrop-filter: blur(4px);
-    box-shadow: 0 0 30px oklch(0.64 0.20 65 / 0.06);
+    box-shadow: 0 0 30px var(--highlight-glow-subtle);
   }
 
   .hero__badge-text {
@@ -242,7 +344,7 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--accent);
+    background: var(--highlight);
     animation: pulse 2.5s ease-in-out infinite;
   }
 
@@ -283,6 +385,10 @@
     color: var(--text-muted);
   }
 
+  .hero__last-word {
+    color: var(--highlight);
+  }
+
   .hero__text {
     font-size: var(--text-lg);
     color: var(--text-secondary);
@@ -307,6 +413,7 @@
   .hero__btn-primary {
     position: relative;
     overflow: hidden;
+    animation: accentPulse 4s ease-in-out infinite;
   }
 
   .hero__btn-primary::after {
@@ -410,13 +517,9 @@
 </style>
 
 <script>
-  const badges = [
-    "Production AI in 8 Weeks",
-    "Reliable Human AI — No Black Box",
-    "Stop Hiring Data Scientists"
-  ];
-
   const el = document.getElementById("rotating-badge");
+  const parent = el?.parentElement;
+  const badges = parent ? JSON.parse(parent.dataset.badges) : [];
   let idx = 0;
 
   function rotateBadge() {

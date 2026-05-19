@@ -1,0 +1,45 @@
+{
+  "sectionLabel": "◆ \u2002Accountability",
+  "title": "Metrics that matter. Not vanity growth.",
+  "subtitle": "We measure whether AI is actually doing the work — not whether headcount grew.",
+  "leading": [
+    {
+      "metric": "HURT",
+      "label": "Human Review Time",
+      "desc": "Time humans spend reviewing AI decisions per task. Target: near zero.",
+      "target": "<5%"
+    },
+    {
+      "metric": "AI Task Completion Rate",
+      "desc": "Interactions fully resolved by the agent without escalation.",
+      "target": ">90%"
+    },
+    {
+      "metric": "Confidence Threshold Accuracy",
+      "desc": "Agent decisions above minimum confidence before acting.",
+      "target": ">95%"
+    },
+    {
+      "metric": "Agentic Workflow Breadth",
+      "desc": "Business processes with live AI agent coverage.",
+      "target": "3×"
+    }
+  ],
+  "lagging": [
+    {
+      "metric": "Revenue Per Team Member",
+      "desc": "Must rise each quarter — the true test of AI impact.",
+      "target": "↑"
+    },
+    {
+      "metric": "Gross Margin Trend",
+      "desc": "AI compute and human review costs included. Target 50%+ margin at scale.",
+      "target": "50%+"
+    },
+    {
+      "metric": "Clients Per Delivery Pod",
+      "desc": "How many simultaneous engagements one team runs with AI support.",
+      "target": "5×"
+    }
+  ]
+}

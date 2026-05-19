@@ -1,0 +1,29 @@
+{
+  "sectionLabel": "Strategic Expansion",
+  "title": "The MENA/KSA opportunity is now",
+  "subtitle": "Vision 2030 digital transformation mandates are creating a multi-billion dollar AI opportunity across government, banking, healthcare, and telecoms. Carpediem AI is uniquely positioned — with Rackspace and Turing/HUMAIN as strategic co-delivery partners.",
+  "strategicPartners": [
+    {
+      "name": "Rackspace Technology",
+      "role": "Cloud + infrastructure in KSA/UAE",
+      "desc": "Co-branded AI Readiness Assessment. Joint delivery across the region."
+    },
+    {
+      "name": "Turing / HUMAIN",
+      "role": "AI talent network + KSA market access",
+      "desc": "Arabic language AI. Scale your team on demand with regional expertise."
+    }
+  ],
+  "marketAccess": [
+    {
+      "name": "Bangalore SWAT Teams",
+      "role": "World-class AI/ML talent at 40–60% of US/UK cost",
+      "desc": "12+ hour daily time zone overlap with Western teams."
+    },
+    {
+      "name": "Vision 2030 Alignment",
+      "role": "NEOM, Saudi Aramco, STC — AI-native operations",
+      "desc": "First-mover advantage in the region's largest digital transformation."
+    }
+  ]
+}

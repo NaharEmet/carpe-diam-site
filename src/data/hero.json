@@ -1,0 +1,24 @@
+{
+  "badges": [
+    "Production AI in 8 Weeks",
+    "14 Systems Shipped. Zero Lock-in.",
+    "Stop Hiring Data Scientists"
+  ],
+  "clients": [
+    "LifeGuides",
+    "Maflam",
+    "Rackspace Technology",
+    "Turing / HUMAIN"
+  ],
+  "title": {
+    "line1": "Seize the day",
+    "line2": "AI systems",
+    "line3": "Built to Last",
+    "line3Highlight": "Last"
+  },
+  "subtitle": "We design, build, and operate production AI systems. 14 deployed across healthcare, finance, and telecom. Average timeline: 8 weeks from kickoff to live.",
+  "statNumber": "14",
+  "statLabel": "production AI systems shipped",
+  "ctaPrimary": "Start AI Readiness Assessment",
+  "ctaGhost": "See Our Framework"
+}

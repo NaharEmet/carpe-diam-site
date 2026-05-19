@@ -1,0 +1,388 @@
+media:
+  public/media
+
+content:
+  - name: site
+    label: Site Settings
+    type: file
+    path: src/data/site.json
+    format: json
+    fields:
+      - name: navLinks
+        label: Navigation Links
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - name: href
+            type: string
+            label: URL
+            description: Use #section-id for same-page, /path for other pages
+            required: true
+          - name: label
+            type: string
+            label: Link Text
+            required: true
+      - name: footerLinks
+        label: Footer Navigate Links
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - name: href
+            type: string
+            label: URL
+            required: true
+          - name: label
+            type: string
+            label: Link Text
+            required: true
+      - name: footerTagline
+        type: string
+        label: Footer Tagline
+      - name: footerDesc
+        type: text
+        label: Footer Description
+      - name: securityBadges
+        type: string
+        label: Security Badges
+        list: true
+        description: Each badge as text (e.g. "SOC 2 • Type II")
+      - name: copyright
+        type: string
+        label: Copyright Text
+      - name: cta
+        label: CTA Section
+        type: object
+        fields:
+          - name: title
+            type: string
+            label: Heading
+          - name: subtitle
+            type: string
+            label: Subheading
+          - name: text
+            type: text
+            label: Body Text
+          - name: btnPrimary
+            type: string
+            label: Primary Button Text
+          - name: btnGhost
+            type: string
+            label: Ghost Button Text
+          - name: email
+            type: string
+            label: Contact Email
+
+  - name: hero
+    label: Hero Section
+    type: file
+    path: src/data/hero.json
+    format: json
+    fields:
+      - name: badges
+        type: string
+        label: Rotating Badge Texts
+        list: true
+        description: Badge rotates through these texts every 4.5s
+      - name: clients
+        type: string
+        label: Client Names (Marquee)
+        list: true
+        description: Displayed as scrolling marquee in hero
+      - name: title
+        type: object
+        label: Hero Title
+        fields:
+          - name: line1
+            type: string
+            label: Line 1
+          - name: line2
+            type: string
+            label: Line 2 (rendered in accent italic)
+          - name: line3
+            type: string
+            label: Line 3
+          - name: line3Highlight
+            type: string
+            label: Word to highlight in line 3
+      - name: subtitle
+        type: text
+        label: Subtitle
+      - name: statNumber
+        type: string
+        label: Stat Number (e.g. "14")
+      - name: statLabel
+        type: string
+        label: Stat Label
+      - name: ctaPrimary
+        type: string
+        label: Primary CTA Text
+      - name: ctaGhost
+        type: string
+        label: Ghost CTA Text
+
+  - name: services
+    label: Services (What We Do)
+    type: file
+    path: src/data/services.json
+    format: json
+    list: true
+    fields:
+      - name: num
+        type: string
+        label: Number
+      - name: title
+        type: text
+        label: Title
+        description: Use \n for line breaks
+      - name: description
+        type: text
+        label: Description
+      - name: detail
+        type: text
+        label: Detail Text
+
+  - name: team
+    label: Team Members
+    type: file
+    path: src/data/team.json
+    format: json
+    list: true
+    fields:
+      - name: name
+        type: string
+        label: Full Name
+        required: true
+      - name: role
+        type: string
+        label: Role / Title
+      - name: bio
+        type: text
+        label: Bio
+      - name: initials
+        type: string
+        label: Initials
+        description: Used for avatar placeholder
+      - name: accent
+        type: select
+        label: Avatar Style
+        options:
+          - gold
+          - navy
+
+  - name: framework
+    label: AINS Framework Steps
+    type: file
+    path: src/data/framework.json
+    format: json
+    list: true
+    fields:
+      - name: num
+        type: string
+        label: Step Number
+      - name: title
+        type: string
+        label: Step Title
+      - name: subtitle
+        type: string
+        label: Subtitle
+      - name: desc
+        type: text
+        label: Description
+      - name: action
+        type: string
+        label: Action Label
+
+  - name: pricing
+    label: Pricing Tiers
+    type: file
+    path: src/data/pricing.json
+    format: json
+    list: true
+    fields:
+      - name: num
+        type: string
+        label: Tier Number
+      - name: name
+        type: string
+        label: Tier Name
+        required: true
+      - name: tag
+        type: string
+        label: Tag
+      - name: desc
+        type: text
+        label: Description
+      - name: features
+        type: string
+        label: Features
+        list: true
+      - name: price
+        type: string
+        label: Price Display
+      - name: unit
+        type: string
+        label: Unit
+      - name: accent
+        type: boolean
+        label: Accent Style
+        description: Whether this tier uses the accent style
+
+  - name: cases
+    label: Case Studies
+    type: file
+    path: src/data/cases.json
+    format: json
+    list: true
+    fields:
+      - name: tag
+        type: string
+        label: Category Tag
+      - name: client
+        type: string
+        label: Client Name
+        required: true
+      - name: desc
+        type: text
+        label: Brief Description
+      - name: results
+        type: string
+        label: Results / Features
+        list: true
+
+  - name: moat
+    label: Why Carpediem (Moat)
+    type: file
+    path: src/data/moat.json
+    format: json
+    fields:
+      - name: label
+        type: string
+        label: Section Label
+      - name: title
+        type: text
+        label: Heading
+      - name: lead
+        type: text
+        label: Lead Paragraph
+      - name: clincher
+        type: text
+        label: Clincher Quote
+      - name: pillars
+        type: string
+        label: Pillar Labels
+        list: true
+        description: Displayed as pill badges
+      - name: pillarStyles
+        type: string
+        label: Pillar Styles
+        list: true
+        description: Matches pillars — "gold" or "navy"
+
+  - name: metrics
+    label: Success Metrics
+    type: file
+    path: src/data/metrics.json
+    format: json
+    fields:
+      - name: sectionLabel
+        type: string
+        label: Section Label
+      - name: title
+        type: text
+        label: Heading
+      - name: subtitle
+        type: text
+        label: Subtitle
+      - name: leading
+        type: object
+        label: Leading Metrics
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{metric}"
+        fields:
+          - name: metric
+            type: string
+            label: Metric Name
+          - name: label
+            type: string
+            label: Label (optional)
+          - name: desc
+            type: text
+            label: Description
+          - name: target
+            type: string
+            label: Target Value
+      - name: lagging
+        type: object
+        label: Lagging Metrics
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{metric}"
+        fields:
+          - name: metric
+            type: string
+            label: Metric Name
+          - name: desc
+            type: text
+            label: Description
+          - name: target
+            type: string
+            label: Target Value
+
+  - name: mena
+    label: MENA/KSA Section
+    type: file
+    path: src/data/mena.json
+    format: json
+    fields:
+      - name: sectionLabel
+        type: string
+        label: Section Label
+      - name: title
+        type: text
+        label: Heading
+      - name: subtitle
+        type: text
+        label: Subtitle
+      - name: strategicPartners
+        type: object
+        label: Strategic Partners
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            type: string
+            label: Name
+          - name: role
+            type: string
+            label: Role
+          - name: desc
+            type: text
+            label: Description
+      - name: marketAccess
+        type: object
+        label: Market Access
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            type: string
+            label: Name
+          - name: role
+            type: string
+            label: Role
+          - name: desc
+            type: text
+            label: Description

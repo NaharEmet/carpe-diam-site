@@ -1,0 +1,247 @@
+---
+import team from '../data/team.json';
+---
+
+<section class="section team-section" id="team">
+  <div class="team__bg"></div>
+  <div class="team__ornament team__ornament--circle"></div>
+  <div class="team__ornament team__ornament--square"></div>
+  <div class="container--narrow">
+    <div class="section-header reveal">
+      <span class="section-label">Who We Are</span>
+      <h2 class="section-title">
+        Built by people who <em>shipped AI</em>
+      </h2>
+      <p class="section-subtitle">
+        The team behind Carpediem AI has built AI platforms at Five9, Kore.AI, Genesys, IBM, Uniphore, and Rackspace Technology — not just advised on them.
+      </p>
+    </div>
+
+    <div class="team__grid">
+      {team.map((member, i) => (
+        <article class="team__card reveal" class:list={{ [`reveal-delay-${i + 1}`]: true }}>
+          <div class="team__avatar" class:list={{ [`team__avatar--${member.accent}`]: true }}>
+            <span class="team__initials">{member.initials}</span>
+          </div>
+          <div class="team__body">
+            <h3 class="team__name">{member.name}</h3>
+            <span class="team__role">{member.role}</span>
+            <p class="team__bio">{member.bio}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .team-section {
+    position: relative;
+  }
+
+  .team__bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 55% 45% at 25% 20%, var(--glow-1) 0%, transparent 100%),
+      radial-gradient(ellipse 35% 30% at 75% 80%, var(--glow-2) 0%, transparent 100%),
+      radial-gradient(ellipse 30% 25% at 55% 40%, var(--glow-3) 0%, transparent 100%);
+    pointer-events: none;
+    mask-image: 
+      radial-gradient(ellipse 100% 20% at 50% 0%, transparent 0%, black 100%),
+      radial-gradient(ellipse 100% 20% at 50% 100%, transparent 0%, black 100%);
+    -webkit-mask-image: 
+      radial-gradient(ellipse 100% 20% at 50% 0%, transparent 0%, black 100%),
+      radial-gradient(ellipse 100% 20% at 50% 100%, transparent 0%, black 100%);
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+  }
+
+  .team__ornament {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .team__ornament--circle {
+    width: 180px;
+    height: 180px;
+    top: 6%;
+    left: 2%;
+    border-radius: 50%;
+    border: 1px solid var(--accent-subtle);
+    opacity: 0.12;
+    animation: sectionFloat 24s ease-in-out infinite;
+  }
+
+  .team__ornament--circle::before {
+    content: '';
+    position: absolute;
+    inset: 20%;
+    border: 1px solid var(--accent-muted);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  .team__ornament--square {
+    width: 90px;
+    height: 90px;
+    bottom: 8%;
+    right: 3%;
+    border: 1px solid var(--navy);
+    border-radius: 0;
+    opacity: 0.1;
+    animation: sectionFloat 30s ease-in-out infinite reverse;
+  }
+
+  .team__ornament--square::before {
+    content: '';
+    position: absolute;
+    inset: 15%;
+    border: 1px solid var(--navy);
+    opacity: 0.5;
+  }
+
+  .team__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2xl);
+  }
+
+  .team__card {
+    padding: var(--space-2xl);
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    transition: all var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .team__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--accent), var(--navy-glow-strong));
+    opacity: 0;
+    transition: opacity var(--transition);
+  }
+
+  .team__card:hover::before {
+    opacity: 1;
+  }
+
+  .team__card:hover {
+    border-color: var(--highlight-muted);
+    background: var(--bg-elevated);
+    transform: translateY(-3px);
+  }
+
+  .team__avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all var(--transition);
+  }
+
+  .team__avatar--gold {
+    background: var(--accent-surface);
+    border: 1px solid var(--accent-subtle);
+  }
+
+  .team__avatar--navy {
+    background: var(--navy-glow-subtle);
+    border: 1px solid var(--navy-muted);
+  }
+
+  .team__card:hover .team__avatar--gold {
+    background: var(--highlight-surface);
+    border-color: var(--highlight-muted);
+    box-shadow: 0 0 20px var(--highlight-surface);
+  }
+
+  .team__card:hover .team__avatar--navy {
+    background: var(--navy-glow-mid);
+    border-color: var(--navy-glow-mid);
+    box-shadow: 0 0 20px var(--navy-glow-subtle);
+  }
+
+  .team__initials {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    color: var(--accent);
+    letter-spacing: 0.03em;
+  }
+
+  .team__avatar--navy .team__initials {
+    color: var(--navy);
+  }
+
+  .team__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .team__name {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    transition: color var(--transition);
+  }
+
+  .team__card:hover .team__name {
+    color: var(--highlight);
+  }
+
+  .team__role {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.03em;
+  }
+
+  .team__bio {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 1024px) {
+    .team__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .team__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .team__card {
+      padding: var(--space-xl);
+    }
+
+    .team__ornament--circle {
+      width: 100px;
+      height: 100px;
+    }
+
+    .team__ornament--square {
+      display: none;
+    }
+  }
+</style>

@@ -12,7 +12,7 @@ const { title = 'Carpediem AI — Seize the day. Ship the AI.' } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content="Enterprise AI done differently. We design, build, and operate production-grade agentic AI systems that compress timelines and deliver measurable outcomes." />
@@ -23,5 +23,22 @@ const { title = 'Carpediem AI — Seize the day. Ship the AI.' } = Astro.props;
   </head>
   <body>
     <slot />
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          }
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      for (const el of document.querySelectorAll('.reveal')) {
+        observer.observe(el);
+      }
+    </script>
   </body>
 </html>

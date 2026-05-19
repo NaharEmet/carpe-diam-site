@@ -1,0 +1,44 @@
+[
+  {
+    "num": "01",
+    "name": "Assess",
+    "tag": "Project & Assessment",
+    "desc": "The low-risk entry point for every client",
+    "features": [
+      "AI Readiness Assessment — data audit, system mapping, risk report + roadmap",
+      "Use Case Discovery Sprint — ranked backlog with ROI estimates",
+      "Agentic Proof of Concept — single use case built & validated in shadow mode"
+    ],
+    "price": "From $25K",
+    "unit": "4-week engagement",
+    "accent": false
+  },
+  {
+    "num": "02",
+    "name": "Build",
+    "tag": "Deployment & Transformation",
+    "desc": "Core services revenue engine",
+    "features": [
+      "Phase 2–4 Implementation — strategy through phased agentic deployment",
+      "AI Build Sprint — 8–12 weeks, 2–4 agents live",
+      "Managed AI Operations — ongoing monitoring and retraining"
+    ],
+    "price": "From $100K",
+    "unit": "8–12 week sprint",
+    "accent": true
+  },
+  {
+    "num": "03",
+    "name": "Scale",
+    "tag": "Products & Platform",
+    "desc": "High-margin recurring revenue",
+    "features": [
+      "Deployment Accelerator Library — 200+ pre-built intents, flows & connectors",
+      "Voice AI Testing Simulator — synthetic stress-testing pre-launch",
+      "AI Workflow Designer — drag-and-drop agent blueprint tool"
+    ],
+    "price": "From $5K/mo",
+    "unit": "Platform licensing + usage credits",
+    "accent": false
+  }
+]

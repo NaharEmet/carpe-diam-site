@@ -1,51 +1,11 @@
 ---
-const tiers = [
-  {
-    num: '01',
-    name: 'Assess',
-    tag: 'Project & Assessment',
-    desc: 'The low-risk entry point for every client',
-    features: [
-      'AI Readiness Assessment — data audit, system mapping, risk report + roadmap',
-      'Use Case Discovery Sprint — ranked backlog with ROI estimates',
-      'Agentic Proof of Concept — single use case built & validated in shadow mode',
-    ],
-    price: '$15K – $150K',
-    unit: 'per engagement',
-    accent: false,
-  },
-  {
-    num: '02',
-    name: 'Build',
-    tag: 'Deployment & Transformation',
-    desc: 'Core services revenue engine',
-    features: [
-      'Phase 2–4 Implementation — strategy through phased agentic deployment',
-      'AI Build Sprint — 8–12 weeks, 2–4 agents live',
-      'Managed AI Operations — ongoing monitoring and retraining',
-    ],
-    price: '$75K – $1M+',
-    unit: '$15–60K/mo retainer',
-    accent: true,
-  },
-  {
-    num: '03',
-    name: 'Scale',
-    tag: 'Products & Platform',
-    desc: 'High-margin recurring revenue',
-    features: [
-      'Deployment Accelerator Library — 200+ pre-built intents, flows & connectors',
-      'Voice AI Testing Simulator — synthetic stress-testing pre-launch',
-      'AI Workflow Designer — drag-and-drop agent blueprint tool',
-    ],
-    price: '$3K – $20K/mo',
-    unit: 'Per-interaction credits',
-    accent: false,
-  },
-];
+import tiers from '../data/pricing.json';
 ---
 
-<section class="section" id="services">
+<section class="section pricing-section" id="services">
+  <div class="pricing__bg"></div>
+  <div class="pricing__ornament pricing__ornament--circle"></div>
+  <div class="pricing__ornament pricing__ornament--square"></div>
   <div class="container--narrow">
     <div class="section-header reveal">
       <span class="section-label">Services & Pricing</span>
@@ -89,6 +49,72 @@ const tiers = [
 </section>
 
 <style>
+  .pricing-section {
+    position: relative;
+  }
+
+  .pricing__bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 55% 45% at 20% 15%, var(--glow-1) 0%, transparent 100%),
+      radial-gradient(ellipse 35% 30% at 75% 80%, var(--glow-2) 0%, transparent 100%),
+      radial-gradient(ellipse 30% 25% at 60% 40%, var(--glow-3) 0%, transparent 100%);
+    pointer-events: none;
+    mask-image: 
+      radial-gradient(ellipse 100% 20% at 50% 0%, transparent 0%, black 100%),
+      radial-gradient(ellipse 100% 20% at 50% 100%, transparent 0%, black 100%);
+    -webkit-mask-image: 
+      radial-gradient(ellipse 100% 20% at 50% 0%, transparent 0%, black 100%),
+      radial-gradient(ellipse 100% 20% at 50% 100%, transparent 0%, black 100%);
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+  }
+
+  .pricing__ornament {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .pricing__ornament--circle {
+    width: 160px;
+    height: 160px;
+    top: 8%;
+    right: 1%;
+    border-radius: 50%;
+    border: 1px solid var(--accent-subtle);
+    opacity: 0.12;
+    animation: sectionFloat 22s ease-in-out infinite;
+  }
+
+  .pricing__ornament--circle::before {
+    content: '';
+    position: absolute;
+    inset: 20%;
+    border: 1px solid var(--accent-muted);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  .pricing__ornament--square {
+    width: 90px;
+    height: 90px;
+    bottom: 6%;
+    left: 4%;
+    border: 1px solid var(--navy);
+    border-radius: 0;
+    opacity: 0.1;
+    animation: sectionFloat 28s ease-in-out infinite reverse;
+  }
+
+  .pricing__ornament--square::before {
+    content: '';
+    position: absolute;
+    inset: 15%;
+    border: 1px solid var(--navy);
+    opacity: 0.5;
+  }
+
   .pricing-tracks {
     display: flex;
     flex-direction: column;
@@ -134,9 +160,9 @@ const tiers = [
   }
 
   .pricing-track:hover .pricing-track__num {
-    background: var(--accent-surface);
-    border-color: var(--accent-muted);
-    box-shadow: 0 0 20px var(--accent-surface);
+    background: var(--highlight-surface);
+    border-color: var(--highlight-muted);
+    box-shadow: 0 0 20px var(--highlight-surface);
   }
 
   .pricing-track__line {
@@ -267,6 +293,15 @@ const tiers = [
 
     .pricing-track__price {
       font-size: var(--text-xl);
+    }
+
+    .pricing__ornament--circle {
+      width: 100px;
+      height: 100px;
+    }
+
+    .pricing__ornament--square {
+      display: none;
     }
   }
 </style>

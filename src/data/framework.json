@@ -1,0 +1,37 @@
+[
+  {
+    "num": "01",
+    "title": "Diagnose",
+    "subtitle": "AI Readiness Assessment",
+    "desc": "Analyze data, systems, processes, and team readiness.",
+    "action": "Readiness Scorecard"
+  },
+  {
+    "num": "02",
+    "title": "Design",
+    "subtitle": "AI-Native Strategic Planning",
+    "desc": "Architecture design, agent blueprints, and capability mapping.",
+    "action": "CBM Design Tool"
+  },
+  {
+    "num": "03",
+    "title": "Validate",
+    "subtitle": "Controlled AI Validation",
+    "desc": "Validate AI accuracy and confidence through shadow-mode testing.",
+    "action": "Voice AI Simulator"
+  },
+  {
+    "num": "04",
+    "title": "Deploy",
+    "subtitle": "Phased AI Deployment",
+    "desc": "Progressive rollout tied to milestone outcomes.",
+    "action": "Deploy Accelerator"
+  },
+  {
+    "num": "05",
+    "title": "Scale",
+    "subtitle": "Full-Scale AI Operations",
+    "desc": "Managed operations or Build-Operate-Transfer.",
+    "action": "Ops Dashboard"
+  }
+]

@@ -1,3 +1,7 @@
+---
+import site from '../data/site.json';
+---
+
 <section class="cta" id="cta">
   <div class="cta__bg">
     <div class="cta__glow cta__glow1"></div>
@@ -8,27 +12,27 @@
       <div class="cta__content">
         <div class="cta__ornament">◈</div>
         <h2 class="cta__title">
-          Seize the day
+          {site.cta.title}
         </h2>
         <p class="cta__subtitle">
-          Ready to build what's next?
+          {site.cta.subtitle}
         </p>
         <p class="cta__text">
-          Start with a no-risk AI Readiness Assessment. Understand your AI opportunity —
-          use cases, ROI estimates, and a phased roadmap — before committing to any deployment.
+          {site.cta.text}
         </p>
         <div class="cta__actions">
-          <a href="#" class="btn btn--primary btn--large">
-            Request AI Readiness Assessment
+          <a href="mailto:{site.cta.email}" class="btn btn--primary btn--large">
+            {site.cta.btnPrimary}
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="btn__arrow">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
           <a href="#framework" class="btn btn--outline btn--large">
-            See the Framework
+            {site.cta.btnGhost}
           </a>
         </div>
       </div>
+      <div class="cta__square"></div>
       <div class="cta__visual">
         <div class="cta__mandala"></div>
         <div class="cta__float cta__float1"></div>
@@ -51,6 +55,27 @@
     pointer-events: none;
   }
 
+  .cta__square {
+    position: absolute;
+    bottom: 8%;
+    left: 3%;
+    width: 100px;
+    height: 100px;
+    border: 1px solid var(--navy);
+    border-radius: 0;
+    opacity: 0.1;
+    pointer-events: none;
+    animation: sectionFloat 28s ease-in-out infinite reverse;
+  }
+
+  .cta__square::before {
+    content: '';
+    position: absolute;
+    inset: 15%;
+    border: 1px solid var(--navy);
+    opacity: 0.5;
+  }
+
   .cta__glow {
     position: absolute;
     border-radius: 50%;
@@ -61,7 +86,7 @@
     height: 600px;
     top: -20%;
     left: -10%;
-    background: radial-gradient(circle at center, oklch(0.64 0.20 65 / 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle at center, var(--accent-glow-subtle) 0%, transparent 70%);
     animation: ctaGlowPulse 8s ease-in-out infinite;
   }
 
@@ -70,7 +95,7 @@
     height: 400px;
     bottom: -15%;
     right: 20%;
-    background: radial-gradient(circle at center, oklch(0.58 0.16 38 / 0.06) 0%, transparent 70%);
+    background: radial-gradient(circle at center, var(--highlight-glow-subtle) 0%, transparent 70%);
     animation: ctaGlowPulse 10s ease-in-out infinite 2s;
   }
 
@@ -139,7 +164,7 @@
     width: min(300px, 26vw);
     height: min(300px, 26vw);
     border-radius: 50%;
-    border: 1px solid oklch(0.30 0.06 58 / 0.3);
+    border: 1px solid var(--mandala-outer);
     position: relative;
     animation: ctaSpin 60s linear infinite;
   }
@@ -149,7 +174,7 @@
     position: absolute;
     inset: 15%;
     border-radius: 50%;
-    border: 1px solid oklch(0.28 0.05 50 / 0.25);
+    border: 1px solid var(--mandala-mid);
   }
 
   .cta__mandala::after {
@@ -157,7 +182,7 @@
     position: absolute;
     inset: 32%;
     border-radius: 50%;
-    border: 1px solid oklch(0.64 0.20 65 / 0.12);
+    border: 1px solid var(--mandala-inner);
   }
 
   .cta__float {
@@ -181,7 +206,7 @@
     height: 40px;
     bottom: 20%;
     left: 5%;
-    border-color: var(--terracotta-muted);
+    border-color: var(--navy);
     animation-delay: 5s;
   }
 
@@ -228,6 +253,9 @@
     .btn--large {
       text-align: center;
       justify-content: center;
+    }
+    .cta__square {
+      display: none;
     }
   }
 </style>

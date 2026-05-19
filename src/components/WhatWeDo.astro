@@ -1,33 +1,10 @@
 ---
-const services = [
-  {
-    num: '01',
-    title: 'Autonomous AI',
-    description: 'AI agents that handle complex tasks end to end. Deployed in your cloud. No lock-in.',
-    detail: 'Autonomous, self-optimizing, and built for enterprise-grade reliability.',
-  },
-  {
-    num: '02',
-    title: 'Customer\nExperience',
-    description: 'End-to-end customer experience engineering — voice AI, contact center intelligence, and AI-driven operations.',
-    detail: 'Orchestrate every touchpoint with intelligent, context-aware AI.',
-  },
-  {
-    num: '03',
-    title: 'MENA /\nKSA',
-    description: 'Your bridge to high-growth MENA markets. Backed by Rackspace, Turing/HUMAIN, and Vision 2030.',
-    detail: 'Arabic-first, locally compliant, globally competitive.',
-  },
-  {
-    num: '04',
-    title: 'PoC →\nProduction',
-    description: 'Production AI in weeks, not quarters. Our AINS Framework makes it repeatable.',
-    detail: 'From validation to live deployment — a straight line.',
-  },
-];
+import services from '../data/services.json';
 ---
 
 <section class="section services-section" id="what-we-do">
+  <div class="services__ornament services__ornament--circle"></div>
+  <div class="services__ornament services__ornament--square"></div>
   <div class="container--narrow">
     <div class="section-header reveal">
       <span class="section-label">What We Do</span>
@@ -35,7 +12,7 @@ const services = [
         From strategy <em>to production</em>
       </h2>
       <p class="section-subtitle">
-        From strategy to production — we build agentic AI systems that become core infrastructure.
+        Agentic AI systems that run operations end to end. Deployed in your cloud. No lock-in.
       </p>
     </div>
 
@@ -64,9 +41,62 @@ const services = [
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 50% 40% at 0% 20%, oklch(0.20 0.06 50 / 0.15) 0%, transparent 100%),
-      radial-gradient(ellipse 40% 30% at 100% 80%, oklch(0.16 0.04 35 / 0.12) 0%, transparent 100%);
+      radial-gradient(ellipse 60% 50% at 0% 20%, var(--glow-1) 0%, transparent 100%),
+      radial-gradient(ellipse 45% 35% at 100% 80%, var(--glow-2) 0%, transparent 100%),
+      radial-gradient(ellipse 35% 30% at 65% 30%, var(--glow-3) 0%, transparent 100%);
     pointer-events: none;
+    mask-image: 
+      radial-gradient(ellipse 100% 20% at 50% 0%, transparent 0%, black 100%),
+      radial-gradient(ellipse 100% 20% at 50% 100%, transparent 0%, black 100%);
+    -webkit-mask-image: 
+      radial-gradient(ellipse 100% 20% at 50% 0%, transparent 0%, black 100%),
+      radial-gradient(ellipse 100% 20% at 50% 100%, transparent 0%, black 100%);
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+  }
+
+  .services__ornament {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .services__ornament--circle {
+    width: 180px;
+    height: 180px;
+    top: 5%;
+    right: 2%;
+    border-radius: 50%;
+    border: 1px solid var(--accent-subtle);
+    opacity: 0.15;
+    animation: sectionFloat 24s ease-in-out infinite;
+  }
+
+  .services__ornament--circle::before {
+    content: '';
+    position: absolute;
+    inset: 20%;
+    border: 1px solid var(--accent-muted);
+    border-radius: 50%;
+    opacity: 0.6;
+  }
+
+  .services__ornament--square {
+    width: 100px;
+    height: 100px;
+    bottom: 8%;
+    left: 3%;
+    border: 1px solid var(--navy);
+    border-radius: 0;
+    opacity: 0.1;
+    animation: sectionFloat 30s ease-in-out infinite reverse;
+  }
+
+  .services__ornament--square::before {
+    content: '';
+    position: absolute;
+    inset: 15%;
+    border: 1px solid var(--navy);
+    opacity: 0.5;
   }
 
   .services-grid {
@@ -104,7 +134,7 @@ const services = [
   }
 
   .service-card:hover .service-card__num {
-    color: var(--accent-subtle);
+    color: var(--highlight-muted);
     transform: scale(1.08) translateY(-0.25rem);
   }
 
@@ -118,7 +148,7 @@ const services = [
   }
 
   .service-card__accent--alt {
-    background: var(--terracotta);
+    background: var(--navy);
   }
 
   .service-card:hover .service-card__accent {
@@ -140,7 +170,7 @@ const services = [
   }
 
   .service-card:hover .service-card__title {
-    color: var(--accent);
+    color: var(--highlight);
   }
 
   .service-card__text {
@@ -164,7 +194,7 @@ const services = [
   }
 
   .service-card:hover .service-card__detail {
-    color: var(--accent-muted);
+    color: var(--highlight-muted);
   }
 
   .service-card__glow {
@@ -173,7 +203,7 @@ const services = [
     right: -20%;
     width: 140%;
     height: 140%;
-    background: radial-gradient(circle at 30% 30%, var(--accent-surface), transparent 70%);
+    background: radial-gradient(circle at 30% 30%, var(--highlight-surface), transparent 70%);
     opacity: 0;
     transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     pointer-events: none;
@@ -202,6 +232,15 @@ const services = [
       font-size: clamp(3rem, 15vw, 5rem);
       top: -0.5rem;
       right: -0.5rem;
+    }
+
+    .services__ornament--circle {
+      width: 100px;
+      height: 100px;
+    }
+
+    .services__ornament--square {
+      display: none;
     }
   }
 </style>

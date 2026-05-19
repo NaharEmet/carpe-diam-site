@@ -1,0 +1,33 @@
+{
+  "navLinks": [
+    { "href": "#what-we-do", "label": "What We Do" },
+    { "href": "#framework", "label": "Framework" },
+    { "href": "#services", "label": "Services" },
+    { "href": "#engagements", "label": "Projects" },
+    { "href": "#team", "label": "Who We Are" },
+    { "href": "/approach", "label": "Approach" }
+  ],
+  "footerLinks": [
+    { "href": "#what-we-do", "label": "Services" },
+    { "href": "#framework", "label": "Framework" },
+    { "href": "/approach", "label": "Approach" },
+    { "href": "#cta", "label": "Contact" }
+  ],
+  "footerTagline": "Enterprise AI, done differently. Built to last.",
+  "footerDesc": "We design, build, and operate production-grade agentic AI systems that compress timelines, eliminate waste, and deliver measurable outcomes.",
+  "securityBadges": [
+    "SOC 2 • Type II",
+    "GDPR Compliant",
+    "ISO 27001 • Certified",
+    "KSA Data Residency"
+  ],
+  "copyright": "© 2026 Carpediem AI · carpediemsolutions.ai",
+  "cta": {
+    "title": "Seize the day",
+    "subtitle": "Ready to build what's next?",
+    "text": "Start with a no-risk AI Readiness Assessment. Understand your AI opportunity — use cases, ROI estimates, and a phased roadmap — before committing to any deployment.",
+    "btnPrimary": "Request AI Readiness Assessment",
+    "btnGhost": "See the Framework",
+    "email": "hello@carpediemsolutions.ai"
+  }
+}

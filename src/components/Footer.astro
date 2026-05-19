@@ -1,54 +1,57 @@
 ---
-
-const footerLinks = [
-  { href: '#what-we-do', label: 'Services' },
-  { href: '#framework', label: 'Framework' },
-  { href: '#mena', label: 'MENA/KSA' },
-  { href: '#cta', label: 'Contact' },
-];
+import site from '../data/site.json';
 ---
 
 <footer class="footer">
   <div class="footer__top-decor"></div>
+  <div class="footer__bg"></div>
+  <div class="footer__ornament"></div>
   <div class="container--narrow">
     <div class="footer__grid">
       <div class="footer__brand">
         <a href="/" class="footer__logo">
-          <span class="footer__logo-icon">◆</span>
+          <img src="/logo.svg" alt="Carpediem AI" class="footer__logo-img" />
           <span class="footer__logo-text">Carpediem AI</span>
         </a>
         <p class="footer__tagline">
-          Enterprise AI, done differently. Built to last.
+          {site.footerTagline}
         </p>
         <p class="footer__desc">
-          We design, build, and operate production-grade agentic AI systems
-          that compress timelines, eliminate waste, and deliver measurable outcomes.
+          {site.footerDesc}
         </p>
       </div>
 
       <div class="footer__col">
         <h4 class="footer__col-title">Navigate</h4>
         <nav class="footer__nav">
-          {footerLinks.map((link) => (
+          {site.footerLinks.map((link) => (
             <a href={link.href} class="footer__link">{link.label}</a>
           ))}
         </nav>
       </div>
 
       <div class="footer__col">
-        <h4 class="footer__col-title">Framework</h4>
+        <h4 class="footer__col-title">Approach</h4>
         <nav class="footer__nav">
-          <a href="#framework" class="footer__link">AINS 5-Point Framework</a>
-          <a href="#services" class="footer__link">Services & Pricing</a>
-          <a href="#moats" class="footer__link">Why Carpediem</a>
-          <a href="#metrics" class="footer__link">Success Metrics</a>
+          <a href="/approach" class="footer__link">Why Carpediem</a>
+          <a href="/approach" class="footer__link">Success Metrics</a>
+          <a href="/approach" class="footer__link">MENA/KSA</a>
         </nav>
+      </div>
+    </div>
+
+    <div class="footer__security reveal">
+      <span class="footer__security-label">Security &amp; Compliance</span>
+      <div class="footer__security-badges">
+        {site.securityBadges.map((badge) => (
+          <span class="footer__badge">{badge}</span>
+        ))}
       </div>
     </div>
 
     <div class="footer__bottom">
       <p class="footer__copy">
-        © 2026 Carpediem AI · carpediemsolutions.ai
+        {site.copyright}
       </p>
       <p class="footer__tagline-small">
         Enterprise AI services
@@ -60,9 +63,46 @@ const footerLinks = [
 <style>
   .footer {
     padding-block: var(--space-3xl) var(--space-xl);
-    border-top: 1px solid var(--border);
     background: var(--bg-base);
     position: relative;
+  }
+
+  .footer__bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 40% 50% at 15% 30%, var(--glow-1-mid) 0%, transparent 100%),
+      radial-gradient(ellipse 25% 30% at 80% 70%, var(--glow-2-mid) 0%, transparent 100%);
+    pointer-events: none;
+    mask-image: 
+      radial-gradient(ellipse 100% 20% at 50% 0%, transparent 0%, black 100%),
+      radial-gradient(ellipse 100% 20% at 50% 100%, transparent 0%, black 100%);
+    -webkit-mask-image: 
+      radial-gradient(ellipse 100% 20% at 50% 0%, transparent 0%, black 100%),
+      radial-gradient(ellipse 100% 20% at 50% 100%, transparent 0%, black 100%);
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+  }
+
+  .footer__ornament {
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+    width: 80px;
+    height: 80px;
+    border: 1px solid var(--navy);
+    border-radius: 0;
+    opacity: 0.06;
+    pointer-events: none;
+    animation: sectionFloat 30s ease-in-out infinite reverse;
+  }
+
+  .footer__ornament::before {
+    content: '';
+    position: absolute;
+    inset: 15%;
+    border: 1px solid var(--navy);
+    opacity: 0.5;
   }
 
   .footer__top-decor {
@@ -71,7 +111,7 @@ const footerLinks = [
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(to right, transparent, var(--accent-muted), var(--accent), oklch(0.58 0.16 38 / 0.5), transparent);
+    background: linear-gradient(to right, transparent, var(--accent-muted), var(--accent), var(--highlight-glow-strong), transparent);
     opacity: 0.5;
   }
 
@@ -92,9 +132,9 @@ const footerLinks = [
     letter-spacing: -0.02em;
   }
 
-  .footer__logo-icon {
-    color: var(--accent);
-    font-size: 1.2em;
+  .footer__logo-img {
+    height: 2rem;
+    width: auto;
   }
 
   .footer__tagline {
@@ -137,7 +177,7 @@ const footerLinks = [
   }
 
   .footer__link:hover {
-    color: var(--accent);
+    color: var(--highlight);
   }
 
   .footer__bottom {
@@ -165,7 +205,52 @@ const footerLinks = [
       grid-template-columns: 1fr;
       gap: var(--space-2xl);
     }
-    .footer__bottom {
+  .footer__security {
+    margin-top: var(--space-3xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+    flex-wrap: wrap;
+  }
+
+  .footer__security-label {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+  }
+
+  .footer__security-badges {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .footer__badge {
+    font-size: var(--text-xs);
+    font-weight: 500;
+    color: var(--text-secondary);
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    transition: all var(--transition);
+  }
+
+  .footer__badge:hover {
+    border-color: var(--highlight-muted);
+    color: var(--highlight);
+    background: var(--highlight-surface);
+  }
+
+  .footer__badge-dot {
+    color: var(--accent-muted);
+    margin: 0 0.15rem;
+  }
+
+  .footer__bottom {
       flex-direction: column;
       gap: var(--space-md);
       text-align: center;
