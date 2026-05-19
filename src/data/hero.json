@@ -1,14 +1,22 @@
 {
   "badges": [
     "Production AI in 8 Weeks",
-    "14 Systems Shipped. Zero Lock-in.",
+    "Shipped in 14 sectors . Zero Lock-in.",
     "Stop Hiring Data Scientists"
   ],
   "clients": [
-    { "name": "LifeGuides" },
-    { "name": "Maflam" },
-    { "name": "Rackspace Technology" },
-    { "name": "Turing / HUMAIN" }
+    {
+      "name": "LifeGuides"
+    },
+    {
+      "name": "Maflam"
+    },
+    {
+      "name": "Rackspace Technology"
+    },
+    {
+      "name": "Turing / HUMAIN"
+    }
   ],
   "title": {
     "line1": "Seize the day",
